@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Spider ❤️</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Georgia,serif;background:#fff0f3;color:#543747;text-align:center}
+section{padding:55px 18px;max-width:850px;margin:auto}
+h1{font-size:clamp(2.2rem,8vw,4rem);color:#d94f78}
+h2{color:#c84e75}
+p{line-height:1.7}
+button{border:0;border-radius:25px;padding:13px 23px;background:#e85d86;color:white;font-size:16px;cursor:pointer;margin:8px}
+button:hover{transform:scale(1.05)}
+.card{background:#fff;border:2px dashed #f2a9bd;border-radius:22px;padding:22px;margin:15px auto;box-shadow:0 6px 18px #e7b5c455}
+.hidden{display:none}
+input{padding:13px;border:2px solid #f2a9bd;border-radius:14px;font-size:18px;text-align:center;width:180px}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:14px}
+.gallery img{width:100%;height:180px;object-fit:cover;border-radius:15px;background:#ffe0e9}
+.cat{font-size:2.5rem}
+.trophy{font-size:3rem}
+.candles{font-size:3rem;letter-spacing:10px}
+#letter{white-space:pre-wrap;text-align:left;line-height:1.8}
+footer{padding:30px;color:#b45b78}
+</style>
+</head>
+<body>
+
+<section id="lock">
+  <div class="cat">🐱 🎀 🐱</div>
+  <h1>A Little Surprise!</h1>
+  <p>Made with love, just for you, Spider ❤️</p>
+  <p>Enter our little secret code</p>
+  <input id="pass" type="password" maxlength="4" placeholder="••••">
+  <br>
+  <button onclick="unlock()">Unlock My Surprise 🔐</button>
+  <p id="error"></p>
+</section>
+
+<main id="site" class="hidden">
+
+<section>
+  <div class="cat">🐱💗🎂🐱</div>
+  <h1>Happy Birthday, Spider!</h1>
+  <p>Today, the whole little universe is celebrating YOU! ✨</p>
+  <button onclick="document.getElementById('gallery').scrollIntoView({behavior:'smooth'})">Open Your Surprise 💌</button>
+</section>
+
+<section id="gallery">
+  <h2>Our Little Photo Corner 📸</h2>
+  <div class="card">
+    <p>Add your favourite pictures here!</p>
+    <input type="file" id="photos" accept="image/*" multiple>
+    <div class="gallery" id="preview"></div>
+  </div>
+</section>
+
+<section>
+  <h2>Things I Love About You 💗</h2>
+  <div class="card">
+    <button onclick="reveal('Your smile makes ordinary days special. 🥹')">Tap me 🐱</button>
+    <button onclick="reveal('I love how dedicated you are to your dreams. ✨')">One more!</button>
+    <button onclick="reveal('You are my favourite human. ❤️')">Last one!</button>
+    <p id="revealText">A little surprise is waiting...</p>
+  </div>
+</section>
+
+<section>
+  <h2>Welcome to Spider's World 🎮</h2>
+  <div class="card">
+    <div class="trophy">🏆</div>
+    <h3>PLAYER ONE: SPIDER</h3>
+    <p>Achievement Unlocked: Being Awesome!</p>
+    <p>Another year of movies, anime, adventures and new levels.</p>
+  </div>
+  <div class="card">
+    <div class="cat">🎬 🍿 🕹️ 🌟</div>
+    <h3>The Main Character Energy</h3>
+    <p>May your next chapter be full of epic scenes and happy endings!</p>
+  </div>
+</section>
+
+<section>
+  <h2>A Little Letter for You 💌</h2>
+  <div class="card">
+    <div class="cat">💌🐱</div>
+    <p id="letter">My dearest Spider,
+
+Happy Birthday! ❤️
+
+I hope your day is filled with laughter, happiness and all the little things you love.
+
+I hope you achieve everything you work so hard for. Keep dreaming, keep growing and never stop being you.
+
+I'm really glad to have you in my life.
+
+Lots of love,
+Your favourite person ❤️</p>
+  </div>
+</section>
+
+<section>
+  <h2>A Little Birthday Melody 🎵</h2>
+  <div class="card">
+    <input type="file" id="music" accept="audio/*">
+    <audio id="player" controls style="width:100%;margin-top:15px"></audio>
+    <p>Choose a song to play while you explore. 🎶</p>
+  </div>
+</section>
+
+<section id="cake">
+  <h1>Make a Wish! 🎂</h1>
+  <div class="card">
+    <div class="candles" id="flames">🕯️🕯️🕯️</div>
+    <div style="font-size:6rem">🎂</div>
+    <p>Take a deep breath and tap to blow your candles!</p>
+    <button onclick="blow()">Blow the Candles! 💨</button>
+    <h2 id="wish"></h2>
+    <div id="confetti" class="cat"></div>
+  </div>
+</section>
+
+</main>
+
+<footer>Made with lots of love for Spider ❤️ 🐱</footer>
+
+<script>
+function unlock(){
+  if(document.getElementById('pass').value==='1611'){
+    document.getElementById('lock').classList.add('hidden');
+    document.getElementById('site').classList.remove('hidden');
+  }else{
+    document.getElementById('error').textContent='Oops! Try our special date again 💗';
+  }
+}
+function reveal(message){
+  document.getElementById('revealText').textContent=message;
+}
+function blow(){
+  document.getElementById('flames').textContent='💨';
+  document.getElementById('wish').textContent='Your wish is on its way! Happy Birthday! ❤️';
+  document.getElementById('confetti').textContent='🎉✨🎊💖🎉✨🎊';
+}
+document.getElementById('photos').addEventListener('change',function(){
+  const box=document.getElementById('preview');
+  box.innerHTML='';
+  [...this.files].forEach(file=>{
+    const img=document.createElement('img');
+    img.src=URL.createObjectURL(file);
+    box.appendChild(img);
+  });
+});
+document.getElementById('music').addEventListener('change',function(){
+  if(this.files[0]){
+    document.getElementById('player').src=URL.createObjectURL(this.files[0]);
+  }
+});
+</script>
+</body>
+</html>
