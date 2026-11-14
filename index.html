@@ -1037,6 +1037,60 @@ input{padding:13px;border:2px solid #f2a9bd;border-radius:14px;font-size:18px;te
   color:#65734b;
   font-weight:bold;
 }
+    /* Retro puppy scrapbook decorations */
+#spider-game {
+  position: relative;
+  background-image:
+    radial-gradient(#65734b22 1.5px, transparent 1.5px) !important;
+  background-size: 18px 18px;
+}
+
+#spider-game .puppy-title {
+  position: relative;
+  box-shadow: 3px 4px 0 #65734b;
+}
+
+#spider-game .puppy-title::before {
+  content: "😎";
+  position: absolute;
+  left: -32px;
+  top: -20px;
+  font-size: 27px;
+  transform: rotate(-15deg);
+}
+
+#spider-game .puppy-title::after {
+  content: "🐾";
+  position: absolute;
+  right: -27px;
+  bottom: -19px;
+  font-size: 26px;
+  transform: rotate(15deg);
+}
+
+#spider-game .puppy-card {
+  position: relative;
+}
+
+#spider-game .puppy-card::before {
+  content: "CERTIFIED CHAOS ✦";
+  position: absolute;
+  top: -13px;
+  right: 12px;
+  background: #d99a53;
+  color: #302719;
+  padding: 5px 9px;
+  font-size: 9px;
+  font-weight: bold;
+  transform: rotate(4deg);
+  border: 1px dashed #65482d;
+  z-index: 2;
+}
+
+#spider-game .puppy-footer {
+  text-decoration: underline wavy #d99a53;
+  text-underline-offset: 5px;
+}
 </style>
 
 <script>
