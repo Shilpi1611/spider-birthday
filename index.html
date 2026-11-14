@@ -824,18 +824,17 @@ function updateLetterReveal() {
   stage.style.setProperty('--paper-y', (25 - progress * 50) + '%');
   stage.style.setProperty('--paper-scale', 0.72 + progress * 0.28);
 
-  if (progress > 0.03) {
-    stage.classList.add('is-emerging');
-  } else {
-    stage.classList.remove('is-emerging');
-  }
+ if (progress > 0.03) {
+  stage.classList.add('is-emerging');
+} else {
+  stage.classList.remove('is-emerging');
+}
 }
 
 window.addEventListener('scroll', updateLetterReveal);
-window.addEventListener('resize', updateLetterReveal);
-
-}
+window.addEventListener('resize', updateLetterReveal)
 </script>
+
 
 </body>
 </html>
