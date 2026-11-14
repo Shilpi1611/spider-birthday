@@ -172,21 +172,25 @@ Your favourite person ❤️</p>
 <script>
   // Birthday falling decorations
 function createBirthdayDecoration() {
-  const symbols = ['💗', '💕', '💖', '✨', '🎀', '🌸', '🎉'];
+  const symbols = [
+    '💗', '💕', '💖', '🎀', '🌸', '🎉',
+    '🕷️', '🎮', '🕹️', '🎧', '👾',
+    '⚔️', '🚀', '🎂', '🦸🏻‍♂️',
+    '🐱‍👤', '⭐', '🍄'
+  ];
 
   const item = document.createElement('div');
   item.className = 'falling-decoration';
   item.textContent = symbols[Math.floor(Math.random() * symbols.length)];
 
   item.style.left = Math.random() * 100 + 'vw';
-  item.style.fontSize = (16 + Math.random() * 18) + 'px';
+  item.style.fontSize = (20 + Math.random() * 20) + 'px';
   item.style.animationDuration = (5 + Math.random() * 5) + 's';
 
   document.body.appendChild(item);
 
   setTimeout(() => item.remove(), 10000);
 }
-
 let birthdayDecorationsStarted = false;
 
 function startBirthdayDecorations() {
