@@ -226,12 +226,17 @@ input{padding:13px;border:2px solid #f2a9bd;border-radius:14px;font-size:18px;te
 }
 
 /* Second click: letter comes halfway out */
+  /* First click: only envelope flap opens */
+.letter-stage.flap-open .letter-paper {
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 180px) scale(0.5);
+}
 .letter-stage.letter-out .letter-paper {
   opacity: 1;
   pointer-events: none;
   transform: translate(-50%, 130px) scale(0.78);
 }
-
 /* Third click: full letter opens */
 .letter-stage.open .letter-paper {
   opacity: 1;
@@ -493,9 +498,6 @@ function closeBirthdayLetter() {
 
   stage.classList.remove('flap-open', 'letter-out', 'open');
   label.textContent = 'A little letter for you';
-}
-function closeBirthdayLetter() {
-  document.getElementById('letterStage').classList.remove('open');
 }
 </script>
 </body>
