@@ -5,6 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy Birthday Spider 💗</title>
 <style>
+ .enter-btn {
+  width: 180px;
+  border-radius: 30px;
+  background: #7199df;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 15px auto;
+  padding: 13px;
+}
  .profile-photo {
   width: 105px;
   height: 105px;
@@ -60,8 +70,9 @@ input[type=file]{max-width:100%;margin:12px}
 <button onclick="press('1')">1</button><button onclick="press('2')">2</button><button onclick="press('3')">3</button>
 <button onclick="press('4')">4</button><button onclick="press('5')">5</button><button onclick="press('6')">6</button>
 <button onclick="press('7')">7</button><button onclick="press('8')">8</button><button onclick="press('9')">9</button>
-<button onclick="clearPin()">⌫</button><button onclick="press('0')">0</button><button onclick="checkPin()">✓</button>
+<button onclick="clearPin()">⌫</button><button onclick="press('0')">0
 </div>
+ <button class="enter-btn" onclick="checkPin()">ENTER</button>
 <p class="small">Enter your secret code</p>
 </div>
 </section>
@@ -166,7 +177,6 @@ function go(n){
 function press(n){
  if(pin.length<4)pin+=n;
  document.getElementById("pin").textContent="•".repeat(pin.length)+"_".repeat(4-pin.length);
- if(pin.length===4)setTimeout(checkPin,250);
 }
 function clearPin(){pin="";document.getElementById("pin").textContent="____";}
 function checkPin(){
