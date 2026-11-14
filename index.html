@@ -5,6 +5,37 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy Birthday Spider 💗</title>
 <style>
+ .scrapbook-strip {
+  width: 100%;
+  max-width: 230px;
+  margin: 18px auto;
+  padding: 12px;
+  background: #f6d98c;
+  border: 2px solid #e8bd68;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-shadow: 0 4px 12px #8b744455;
+}
+
+.scrapbook-strip[hidden] {
+  display: none;
+}
+
+.memory-frame {
+  padding: 7px;
+  background: #fff5df;
+  border: 2px dashed #c89c55;
+  border-radius: 5px;
+}
+
+.memory-frame img {
+  display: block;
+  width: 100%;
+  height: 145px;
+  object-fit: cover;
+  border: 3px solid white;
+}
  .memory-title {
   font-family: cursive;
   font-size: 18px;
@@ -107,11 +138,24 @@ input[type=file]{max-width:100%;margin:12px}
   Finally you are here!!
 </h1>
 
-<button class="memory-line" onclick="document.getElementById('photos').click()">
+<button class="memory-line" onclick="toggleMemories()">
   ♡ Click here ♡
 </button>
 
 <input type="file" id="photos" accept="image/*" multiple hidden>
+
+<div class="scrapbook-strip" id="scrapbookStrip" hidden>
+  <div class="memory-frame">
+    <img src="memory1.jpg.jpeg" alt="Memory 1">
+  </div>
+  <div class="memory-frame">
+    <img src="memory2.jpg.jpeg" alt="Memory 2">
+  </div>
+  <div class="memory-frame">
+    <img src="memory3.jpg" alt="Memory 3">
+  </div>
+</div>
+
 <div class="photo-grid" id="photoGrid"></div>
 <button onclick="go(3)">Continue →</button>
 </div>
@@ -199,6 +243,10 @@ Your favourite person 💕</div>
 </section>
 
 <script>
+ function toggleMemories(){
+ const strip = document.getElementById("scrapbookStrip");
+ strip.hidden = !strip.hidden;
+}
 let pin="";
 function go(n){
  document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));
