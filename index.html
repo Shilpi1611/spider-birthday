@@ -5,6 +5,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy Birthday Spider 💗</title>
 <style>
+ .memory-title {
+  font-family: cursive;
+  font-size: 18px;
+  font-weight: normal;
+  color: #55516f;
+  text-align: center;
+  line-height: 1.5;
+  margin-bottom: 25px;
+}
+
+.memory-line {
+  display: block;
+  width: 210px;
+  margin: 0 auto 25px;
+  padding: 12px;
+  border: 3px solid #c8a8f0;
+  border-radius: 18px;
+  background: #fff4d9;
+  color: #78649a;
+  font-family: cursive;
+  font-size: 14px;
+  cursor: pointer;
+}
  .enter-btn {
   width: 180px;
   border-radius: 30px;
@@ -79,9 +102,16 @@ input[type=file]{max-width:100%;margin:12px}
 
 <section class="screen" id="s2">
 <div class="card">
-<h1>Our Little Memories 📸</h1>
-<p>Choose some photos to add to the memory wall.</p>
-<input type="file" id="photos" accept="image/*" multiple>
+<h1 class="memory-title">
+  Hie spider!!<br>
+  Finally you are here!!
+</h1>
+
+<button class="memory-line" onclick="document.getElementById('photos').click()">
+  ♡ Click here ♡
+</button>
+
+<input type="file" id="photos" accept="image/*" multiple hidden>
 <div class="photo-grid" id="photoGrid"></div>
 <button onclick="go(3)">Continue →</button>
 </div>
