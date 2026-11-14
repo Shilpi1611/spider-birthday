@@ -68,6 +68,179 @@ input{padding:13px;border:2px solid #f2a9bd;border-radius:14px;font-size:18px;te
     opacity: 0;
   }
 }
+  /* Cute animated birthday letter */
+.letter-stage {
+  position: relative;
+  width: 100%;
+  min-height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 25px auto;
+  transition: min-height 0.6s ease;
+}
+
+.letter-stage.open {
+  min-height: 850px;
+  align-items: flex-start;
+}
+
+.envelope {
+  position: relative;
+  width: 280px;
+  height: 185px;
+  border: none;
+  background: #f6a9c5;
+  border-radius: 8px;
+  cursor: pointer;
+  overflow: visible;
+  box-shadow: 0 12px 25px rgba(180, 75, 120, 0.2);
+  animation: envelopeFloat 2.5s ease-in-out infinite;
+  transition: transform 0.6s ease, opacity 0.5s ease;
+}
+
+@keyframes envelopeFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.envelope-back {
+  position: absolute;
+  inset: 0;
+  background: #f8c1d4;
+  border-radius: 8px;
+}
+
+.envelope-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fbd1df;
+  clip-path: polygon(0 0, 100% 0, 50% 58%);
+  transform-origin: top;
+  transition: transform 0.7s ease;
+  z-index: 4;
+}
+
+.envelope-front {
+  position: absolute;
+  inset: 0;
+  background: #f3a2c0;
+  clip-path: polygon(0 100%, 0 0, 50% 58%, 100% 0, 100% 100%);
+  z-index: 3;
+  border-radius: 8px;
+}
+
+.envelope-seal {
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 35px;
+  z-index: 5;
+}
+
+.envelope-label {
+  position: absolute;
+  bottom: 12px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: #8d3456;
+  font-size: 13px;
+  font-weight: bold;
+  z-index: 6;
+}
+
+.letter-paper {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  width: min(90%, 560px);
+  max-height: 82vh;
+  min-height: 650px;
+  overflow-y: auto;
+  box-sizing: border-box;
+  padding: 35px 28px;
+  background: #fff5f8;
+  border: 2px solid #f3c4d5;
+  border-radius: 8px;
+  box-shadow: 0 12px 35px rgba(130, 65, 95, 0.18);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 100px) scale(0.7);
+  transition: all 0.8s cubic-bezier(.2,.8,.2,1);
+  z-index: 8;
+}
+
+.letter-paper h2 {
+  color: #c75b83;
+  text-align: center;
+  font-family: cursive;
+  margin-bottom: 25px;
+}
+
+.letter-message {
+  color: #654653;
+  font-family: cursive;
+  font-size: 18px;
+  line-height: 2;
+  white-space: pre-line;
+  text-align: left;
+}
+
+.letter-doodles {
+  text-align: center;
+  color: #e68aaa;
+  font-size: 24px;
+  margin: 15px 0;
+}
+
+.close-letter {
+  display: block;
+  margin: 25px auto 0;
+  padding: 12px 22px;
+  background: #ed9fbd;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.letter-stage.open .letter-paper {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, 0) scale(1);
+}
+
+.letter-stage.open .envelope {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(220px) scale(0.7);
+  animation: none;
+}
+
+.letter-stage.open .envelope-flap {
+  transform: rotateX(180deg);
+}
+
+@media (max-width: 480px) {
+  .letter-paper {
+    padding: 25px 18px;
+    min-height: 600px;
+  }
+
+  .letter-message {
+    font-size: 16px;
+  }
+
+  .letter-stage.open {
+    min-height: 780px;
+  }
+}
   </style>
 </head>
 <body>
@@ -130,21 +303,46 @@ input{padding:13px;border:2px solid #f2a9bd;border-radius:14px;font-size:18px;te
 
 <section>
   <h2>A Little Letter for You 💌</h2>
-  <div class="card">
-    <div class="cat">💌🐱</div>
-    <p id="letter">My dearest Spider,
 
-Happy Birthday! ❤️
+<div class="letter-stage" id="letterStage">
 
-I hope your day is filled with laughter, happiness and all the little things you love.
+  <div class="letter-paper" id="letterPaper">
+    <div class="letter-doodles">♡ 🎀 ♡</div>
 
-I hope you achieve everything you work so hard for. Keep dreaming, keep growing and never stop being you.
+    <h2>To My Favourite Person ❤️</h2>
 
-I'm really glad to have you in my life.
+    <div class="letter-message">
+      My dearest Spider,
 
-Lots of love,
-Your favourite person ❤️</p>
+      Happy Birthday! ❤️
+
+      I hope your day is filled with laughter, happiness and all the little things you love.
+
+      I hope you achieve everything you work so hard for. Keep dreaming, keep growing and never stop being you.
+
+      I'm really glad to have you in my life.
+
+      Lots of love,
+      Your favourite person ❤️
+    </div>
+
+    <div class="letter-doodles">♡ With love, always ♡</div>
+
+    <button class="close-letter" onclick="closeBirthdayLetter()">
+      Fold my letter 💌
+    </button>
   </div>
+
+  <button class="envelope" id="birthdayEnvelope"
+    onclick="openBirthdayLetter()">
+    <span class="envelope-back"></span>
+    <span class="envelope-flap"></span>
+    <span class="envelope-front"></span>
+    <span class="envelope-seal">💗</span>
+    <span class="envelope-label">A little letter for you</span>
+  </button>
+
+</div>
 </section>
 
 <section>
@@ -246,6 +444,13 @@ document.getElementById('music').addEventListener('change',function(){
     document.getElementById('player').src=URL.createObjectURL(this.files[0]);
   }
 });
+  function openBirthdayLetter() {
+  document.getElementById('letterStage').classList.add('open');
+}
+
+function closeBirthdayLetter() {
+  document.getElementById('letterStage').classList.remove('open');
+}
 </script>
 </body>
 </html>
