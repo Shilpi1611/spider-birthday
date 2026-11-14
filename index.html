@@ -834,34 +834,8 @@ function updateLetterReveal() {
 window.addEventListener('scroll', updateLetterReveal);
 window.addEventListener('resize', updateLetterReveal);
 
-const letterPhotoInput = document.getElementById('letterPhotos');
-
-if (letterPhotoInput) {
-  letterPhotoInput.addEventListener('change', function() {
-    const box = document.getElementById('letterPhotoStack');
-
-    [...this.files].forEach(file => {
-      if (!file.type.startsWith('image/')) return;
-
-      const frame = document.createElement('div');
-      frame.className = 'letter-photo';
-
-      const img = document.createElement('img');
-      img.src = URL.createObjectURL(file);
-      img.alt = 'Birthday memory';
-
-      const caption = document.createElement('input');
-      caption.type = 'text';
-      caption.placeholder = 'A little memory...';
-
-      frame.appendChild(img);
-      frame.appendChild(caption);
-      box.appendChild(frame);
-    });
-
-    this.value = '';
-  });
-}</script>
+}
+</script>
 
 </body>
 </html>
