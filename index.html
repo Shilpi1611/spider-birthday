@@ -166,7 +166,6 @@ function blow(){
 }
 document.getElementById('photos').addEventListener('change', function(){
   const box = document.getElementById('preview');
-  box.innerHTML = '';
 
   [...this.files].forEach(file => {
     const frame = document.createElement('div');
@@ -184,6 +183,8 @@ document.getElementById('photos').addEventListener('change', function(){
     frame.appendChild(caption);
     box.appendChild(frame);
   });
+
+  this.value = '';
 });
 document.getElementById('music').addEventListener('change',function(){
   if(this.files[0]){
