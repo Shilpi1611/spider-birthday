@@ -5,6 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy Birthday Spider 💗</title>
 <style>
+ .profile-photo {
+  width: 105px;
+  height: 105px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid white;
+  box-shadow: 0 3px 12px #8274a555;
+  margin: 5px auto 12px;
+}
+
+.script-title {
+  font-family: "Brush Script MT", "Segoe Script", cursive;
+  font-size: 30px;
+  font-weight: normal;
+  color: #51466c;
+  margin: 8px 0 18px;
+}
 *{box-sizing:border-box}
 body{margin:0;font-family:Georgia,serif;background:#e9e4ff;color:#51466c;text-align:center}
 .screen{display:none;min-height:100vh;padding:35px 18px;align-items:center;justify-content:center;flex-direction:column}
@@ -35,8 +52,9 @@ input[type=file]{max-width:100%;margin:12px}
 
 <section class="screen active" id="s1">
 <div class="card">
-<h1>Welcome 💗</h1>
-<p>A little birthday surprise is waiting for you...</p>
+<img src="spider.jpg" class="profile-photo" alt="Spider">
+
+<h1 class="script-title">This is for Spider</h1>
 <div id="pin">____</div>
 <div class="keypad">
 <button onclick="press('1')">1</button><button onclick="press('2')">2</button><button onclick="press('3')">3</button>
