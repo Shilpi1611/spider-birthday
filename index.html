@@ -932,8 +932,66 @@ input{padding:13px;border:2px solid #f2a9bd;border-radius:14px;font-size:18px;te
     <button class="game-start" onclick="spiderRestart()">🔄 PLAY AGAIN</button>
   </div>
 </section>
-
 <style>
+  #spider-game {
+  background:
+    radial-gradient(circle at 10% 15%, #ff4d8d 0 5%, transparent 25%),
+    radial-gradient(circle at 90% 85%, #ff9f1c 0 5%, transparent 28%),
+    linear-gradient(135deg,#240046,#5a189a,#10002b) !important;
+  border: 3px solid #ffcc33 !important;
+  box-shadow: 0 0 25px #ff4da6;
+  width: 100%;
+  box-sizing: border-box;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+#spider-game h2 {
+  color: #ffe45e !important;
+  text-shadow: 0 0 12px #ff4da6;
+  font-size: 27px;
+}
+
+#spider-game .game-card {
+  background: linear-gradient(145deg,#32105b,#18052f) !important;
+  border: 2px solid #ff4da6 !important;
+  box-shadow: 0 0 20px #ff4da688;
+  width: 100%;
+  box-sizing: border-box;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+#spider-board {
+  width: 100%;
+  max-width: 350px;
+  margin: auto !important;
+  padding: 6px;
+  box-sizing: border-box;
+  background: #11051f;
+  border: 2px solid #ffcc33;
+  border-radius: 12px;
+}
+
+#spider-board .game-cell {
+  background: linear-gradient(145deg,#482078,#291044) !important;
+  border: 1px solid #7545a0;
+}
+
+#spider-game .game-stats {
+  color: #ffe45e;
+}
+
+#spider-game button {
+  background: linear-gradient(135deg,#ff4d8d,#a855f7) !important;
+  box-shadow: 0 0 10px #ff4d8d66;
+}
+
+#spider-game .game-start {
+  background: linear-gradient(135deg,#ffe45e,#ff9f1c) !important;
+  color: #280b3d !important;
+}
+<style>  
 #spider-game {
   text-align:center;
   padding:25px 12px;
