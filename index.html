@@ -68,7 +68,8 @@ input{padding:13px;border:2px solid #f2a9bd;border-radius:14px;font-size:18px;te
     opacity: 0;
   }
 }
-  /* Cute animated birthday letter */
+/* Cute animated birthday letter */
+
 .letter-stage {
   position: relative;
   width: 100%;
@@ -77,23 +78,31 @@ input{padding:13px;border:2px solid #f2a9bd;border-radius:14px;font-size:18px;te
   justify-content: center;
   align-items: center;
   margin: 25px auto;
-  transition: min-height 0.6s ease;
+  transition: min-height 0.7s ease;
+  perspective: 1000px;
 }
 
 .letter-stage.flap-open {
-  min-height: 500px;
+  min-height: 300px;
+}
+
+.letter-stage.letter-out {
+  min-height: 560px;
 }
 
 .letter-stage.open {
-  min-height: 850px;
+  min-height: 900px;
   align-items: flex-start;
 }
 
 .envelope {
   position: relative;
-  width: 320px;
-height: 210px;
+  width: 340px;
+  height: 230px;
   max-width: 90vw;
+  flex-shrink: 0;
+  padding: 0;
+  margin: 0;
   border: none;
   background: #f6a9c5;
   border-radius: 8px;
@@ -101,7 +110,8 @@ height: 210px;
   overflow: visible;
   box-shadow: 0 12px 25px rgba(180, 75, 120, 0.2);
   animation: envelopeFloat 2.5s ease-in-out infinite;
-  transition: transform 0.6s ease, opacity 0.5s ease;
+  transition: transform 0.7s ease, opacity 0.5s ease;
+  z-index: 3;
 }
 
 @keyframes envelopeFloat {
@@ -125,7 +135,9 @@ height: 210px;
   background: #fbd1df;
   clip-path: polygon(0 0, 100% 0, 50% 58%);
   transform-origin: top;
-  transition: transform 0.7s ease;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  transition: transform 0.8s ease;
   z-index: 4;
 }
 
@@ -143,18 +155,18 @@ height: 210px;
   top: 48%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 35px;
+  font-size: 38px;
   z-index: 5;
 }
 
 .envelope-label {
   position: absolute;
-  bottom: 12px;
+  bottom: 15px;
   left: 0;
   width: 100%;
   text-align: center;
   color: #8d3456;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: bold;
   z-index: 6;
 }
@@ -164,20 +176,18 @@ height: 210px;
   top: 10px;
   left: 50%;
   width: min(90%, 560px);
-  max-height: 82vh;
-  min-height: 650px;
-  overflow-y: auto;
-  box-sizing: border-box;
+  min-height: 760px;
   padding: 35px 28px;
+  box-sizing: border-box;
   background: #fff5f8;
   border: 2px solid #f3c4d5;
   border-radius: 8px;
   box-shadow: 0 12px 35px rgba(130, 65, 95, 0.18);
   opacity: 0;
   pointer-events: none;
-  transform: translate(-50%, 100px) scale(0.7);
+  transform: translate(-50%, 180px) scale(0.5);
   transition: all 0.8s cubic-bezier(.2,.8,.2,1);
-  z-index: 8;
+  z-index: 4;
 }
 
 .letter-paper h2 {
@@ -215,16 +225,22 @@ height: 210px;
   font-size: 14px;
 }
 
-.letter-stage.flap-open .letter-paper {
+/* Second click: letter comes halfway out */
+.letter-stage.letter-out .letter-paper {
   opacity: 1;
   pointer-events: none;
-  transform: translate(-50%, 80px) scale(0.78);
+  transform: translate(-50%, 130px) scale(0.78);
 }
 
+/* Third click: full letter opens */
 .letter-stage.open .letter-paper {
   opacity: 1;
   pointer-events: auto;
   transform: translate(-50%, 0) scale(1);
+}
+
+.letter-stage.flap-open .envelope-flap {
+  transform: rotateX(180deg);
 }
 
 .letter-stage.open .envelope {
@@ -234,14 +250,11 @@ height: 210px;
   animation: none;
 }
 
-.letter-stage.flap-open .envelope-flap {
-  transform: rotateX(180deg);
-}
-
 @media (max-width: 480px) {
   .letter-paper {
+    width: 94%;
+    min-height: 760px;
     padding: 25px 18px;
-    min-height: 600px;
   }
 
   .letter-message {
@@ -249,8 +262,9 @@ height: 210px;
   }
 
   .letter-stage.open {
-    min-height: 780px;
+    min-height: 850px;
   }
+}
 }
   </style>
 </head>
@@ -462,10 +476,14 @@ document.getElementById('music').addEventListener('change',function(){
   if (!stage.classList.contains('flap-open')) {
     stage.classList.add('flap-open');
     label.textContent = 'Tap again 💗';
-  } 
+  }
+  else if (!stage.classList.contains('letter-out')) {
+    stage.classList.add('letter-out');
+    label.textContent = 'One more time 💌';
+  }
   else if (!stage.classList.contains('open')) {
     stage.classList.add('open');
-    label.textContent = 'Your letter is open 💌';
+    label.textContent = 'Your letter is open ❤️';
   }
 }
 
@@ -473,10 +491,9 @@ function closeBirthdayLetter() {
   const stage = document.getElementById('letterStage');
   const label = document.querySelector('.envelope-label');
 
-  stage.classList.remove('open', 'flap-open');
+  stage.classList.remove('flap-open', 'letter-out', 'open');
   label.textContent = 'A little letter for you';
 }
-
 function closeBirthdayLetter() {
   document.getElementById('letterStage').classList.remove('open');
 }
