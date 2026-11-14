@@ -10,6 +10,118 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy Birthday Spider ❤️</title>
+  /* Hand-drawn doodles attached to individual photos */
+.scrapbook-board .polaroid {
+  overflow: visible;
+}
+
+.photo-doodle {
+  position: absolute;
+  z-index: 5;
+  pointer-events: none;
+  line-height: 1;
+  animation: doodleFloat 3s ease-in-out infinite;
+}
+
+/* Cactus */
+.photo-doodle.cactus {
+  top: -17px;
+  left: -12px;
+  width: 23px;
+  height: 38px;
+  font-size: 0;
+  border: 2px solid #66845b;
+  border-bottom: 0;
+  border-radius: 14px 14px 3px 3px;
+}
+
+.photo-doodle.cactus::before {
+  content: "";
+  position: absolute;
+  left: -8px;
+  top: 14px;
+  width: 9px;
+  height: 13px;
+  border-left: 2px solid #66845b;
+  border-top: 2px solid #66845b;
+  border-radius: 8px 0 0 0;
+}
+
+.photo-doodle.cactus::after {
+  content: "";
+  position: absolute;
+  right: -8px;
+  top: 19px;
+  width: 9px;
+  height: 12px;
+  border-right: 2px solid #66845b;
+  border-top: 2px solid #66845b;
+  border-radius: 0 8px 0 0;
+}
+
+/* Camera */
+.photo-doodle.camera {
+  top: -15px;
+  right: -12px;
+  width: 34px;
+  height: 24px;
+  font-size: 0;
+  border: 2px solid #bd765d;
+  border-radius: 6px;
+  background: #f4e7d2;
+}
+
+.photo-doodle.camera::before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  left: 9px;
+  top: 5px;
+  border: 2px solid #bd765d;
+  border-radius: 50%;
+}
+
+.photo-doodle.camera::after {
+  content: "";
+  position: absolute;
+  width: 9px;
+  height: 5px;
+  top: -6px;
+  left: 5px;
+  background: #bd765d;
+  border-radius: 3px 3px 0 0;
+}
+
+/* Star */
+.photo-doodle.star {
+  top: -17px;
+  right: -10px;
+  color: #c58a35;
+  font-size: 30px;
+  transform: rotate(12deg);
+}
+
+/* Handwritten heart */
+.photo-doodle.heart {
+  bottom: 12px;
+  right: -13px;
+  color: #bd665e;
+  font-family: cursive;
+  font-size: 36px;
+  transform: rotate(12deg);
+}
+
+/* Handwritten vibes */
+.photo-doodle.vibes {
+  bottom: -13px;
+  left: -12px;
+  color: #a47753;
+  font-family: cursive;
+  font-style: italic;
+  font-size: 19px;
+  transform: rotate(-10deg);
+}
   <style>
 /* Vintage scrapbook gallery */
 .scrapbook-section {
@@ -767,14 +879,8 @@ input{padding:13px;border:2px solid #f2a9bd;border-radius:14px;font-size:18px;te
 
 
     <div class="scrapbook-decoration sun-doodle">☀️</div>
-    <div class="scrapbook-decoration star-doodle">✦</div>
     <div class="scrapbook-decoration flower-doodle">✿</div>
-    <div class="scrapbook-decoration cactus-doodle" aria-hidden="true"> </div>
-<div class="scrapbook-decoration camera-doodle" aria-hidden="true"> </div>
-<div class="scrapbook-decoration heart-doodle" aria-hidden="true">♡</div>
-<div class="scrapbook-decoration memories-doodle" aria-hidden="true">memories</div>
-<div class="scrapbook-decoration vibes-doodle" aria-hidden="true">vibes</div>
-
+   
     <p class="scrapbook-note">little moments, big memories</p>
 
     <div class="scrapbook-upload">
@@ -2140,9 +2246,23 @@ function blow(){
 document.getElementById('photos').addEventListener('change', function(){
   const box = document.getElementById('preview');
 
-  [...this.files].forEach(file => {
+  const doodles = [
+    { name: 'cactus', text: '♧' },
+    { name: 'camera', text: '◎' },
+    { name: 'star', text: '✦' },
+    { name: 'heart', text: '♡' },
+    { name: 'vibes', text: 'vibes' }
+  ];
+
+  [...this.files].forEach((file, index) => {
     const frame = document.createElement('div');
     frame.className = 'polaroid';
+
+    const doodle = document.createElement('span');
+    const selected = doodles[index % doodles.length];
+    doodle.className = 'photo-doodle ' + selected.name;
+    doodle.textContent = selected.text;
+    doodle.setAttribute('aria-hidden', 'true');
 
     const img = document.createElement('img');
     img.src = URL.createObjectURL(file);
@@ -2152,6 +2272,7 @@ document.getElementById('photos').addEventListener('change', function(){
     caption.className = 'photo-caption';
     caption.placeholder = 'Write a little memory...';
 
+    frame.appendChild(doodle);
     frame.appendChild(img);
     frame.appendChild(caption);
     box.appendChild(frame);
