@@ -68,62 +68,114 @@ input{padding:13px;border:2px solid #f2a9bd;border-radius:14px;font-size:18px;te
     opacity: 0;
   }
 }
-/* Cute animated birthday letter */
+/* Blush pink birthday envelope and scroll letter */
+
+.letter-experience {
+  position: relative;
+  min-height: 220vh;
+  padding: 30px 12px 10vh;
+  text-align: center;
+}
+
+.letter-experience h2 {
+  font-family: cursive;
+  color: #c84e75;
+}
+
+.letter-upload {
+  max-width: 550px;
+  margin: 20px auto;
+  padding: 18px;
+  background: #fff;
+  border: 2px dashed #efa9c0;
+  border-radius: 20px;
+}
+
+.letter-photo-stack {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  max-width: 500px;
+  margin: 20px auto;
+}
+
+.letter-photo {
+  background: #fff;
+  padding: 12px 12px 18px;
+  border: 1px solid #f3c4d5;
+  box-shadow: 0 7px 20px #b85b7825;
+  transform: rotate(-1deg);
+}
+
+.letter-photo:nth-child(even) {
+  transform: rotate(1deg);
+}
+
+.letter-photo img {
+  width: 100%;
+  max-height: 320px;
+  object-fit: contain;
+  background: #fff5f8;
+}
+
+.letter-photo input {
+  width: 100%;
+  border: 0;
+  border-bottom: 1px dashed #e9a3bb;
+  border-radius: 0;
+  background: transparent;
+  font-family: cursive;
+  font-size: 18px;
+  color: #b45b78;
+}
+
+.letter-scroll-hint {
+  color: #b45b78;
+  font-family: cursive;
+  font-size: 18px;
+  margin: 25px auto;
+}
 
 .letter-stage {
-  position: relative;
+  --reveal: 0;
+  position: sticky;
+  top: 10vh;
   width: 100%;
-  min-height: 300px;
+  height: 78vh;
+  min-height: 460px;
+  max-height: 680px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  margin: 25px auto;
-  transition: min-height 0.7s ease;
-  perspective: 1000px;
-}
-
-.letter-stage.flap-open {
-  min-height: 300px;
-}
-
-.letter-stage.letter-out {
-  min-height: 560px;
-}
-
-.letter-stage.open {
-  min-height: 900px;
-  align-items: flex-start;
+  justify-content: center;
+  perspective: 1100px;
+  margin: 0 auto;
 }
 
 .envelope {
-  position: relative;
-  width: 340px;
-  height: 230px;
-  max-width: 90vw;
-  flex-shrink: 0;
+  position: absolute;
+  width: min(340px, 86vw);
+  height: 225px;
   padding: 0;
   margin: 0;
-  border: none;
-  background: #f6a9c5;
-  border-radius: 8px;
-  cursor: pointer;
+  border: 0;
+  border-radius: 10px;
+  background: #f5b4ca;
+  box-shadow: 0 18px 35px #a84f702b;
   overflow: visible;
-  box-shadow: 0 12px 25px rgba(180, 75, 120, 0.2);
-  animation: envelopeFloat 2.5s ease-in-out infinite;
-  transition: transform 0.7s ease, opacity 0.5s ease;
-  z-index: 3;
+  z-index: 5;
+  animation: envelopeFloat 3s ease-in-out infinite;
 }
 
 @keyframes envelopeFloat {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  0%, 100% { transform: translateY(0) rotate(-1deg); }
+  50% { transform: translateY(-12px) rotate(1deg); }
 }
 
 .envelope-back {
   position: absolute;
   inset: 0;
-  background: #f8c1d4;
-  border-radius: 8px;
+  background: #f8c8d9;
+  border-radius: 10px;
 }
 
 .envelope-flap {
@@ -132,22 +184,20 @@ input{padding:13px;border:2px solid #f2a9bd;border-radius:14px;font-size:18px;te
   left: 0;
   width: 100%;
   height: 100%;
-  background: #fbd1df;
-  clip-path: polygon(0 0, 100% 0, 50% 58%);
+  background: #fbdce6;
+  clip-path: polygon(0 0, 100% 0, 50% 62%);
   transform-origin: top;
-  transform-style: preserve-3d;
-  backface-visibility: hidden;
-  transition: transform 0.8s ease;
+  transition: transform 0.9s ease;
   z-index: 4;
 }
 
 .envelope-front {
   position: absolute;
   inset: 0;
-  background: #f3a2c0;
-  clip-path: polygon(0 100%, 0 0, 50% 58%, 100% 0, 100% 100%);
+  background: #f2a9c2;
+  clip-path: polygon(0 100%, 0 0, 50% 62%, 100% 0, 100% 100%);
+  border-radius: 10px;
   z-index: 3;
-  border-radius: 8px;
 }
 
 .envelope-seal {
@@ -155,123 +205,120 @@ input{padding:13px;border:2px solid #f2a9bd;border-radius:14px;font-size:18px;te
   top: 48%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 38px;
-  z-index: 5;
+  z-index: 7;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  border: 3px solid #fff0f5;
+  background: #df6f96;
+  color: white;
+  font-size: 29px;
+  box-shadow: 0 4px 12px #9c456333;
+  display: grid;
+  place-items: center;
 }
 
 .envelope-label {
   position: absolute;
-  bottom: 15px;
+  bottom: 14px;
   left: 0;
   width: 100%;
-  text-align: center;
   color: #8d3456;
   font-size: 15px;
   font-weight: bold;
-  z-index: 6;
+  z-index: 8;
 }
 
 .letter-paper {
   position: absolute;
-  top: 10px;
+  top: 50%;
   left: 50%;
-  width: min(90%, 560px);
-  min-height: 760px;
-  padding: 35px 28px;
-  box-sizing: border-box;
-  background: #fff5f8;
-  border: 2px solid #f3c4d5;
-  border-radius: 8px;
-  box-shadow: 0 12px 35px rgba(130, 65, 95, 0.18);
-  opacity: 0;
+  width: min(92%, 540px);
+  min-height: 500px;
+  padding: 28px 22px;
+  background: #fff8fa;
+  border: 2px solid #f1c3d3;
+  border-radius: 12px;
+  box-shadow: 0 15px 35px #a84f7025;
+  opacity: calc(0.2 + var(--reveal) * 0.8);
+ transform: translate(-50%, var(--paper-y)) 
+   scale(var(--paper-scale));
+  transform-origin: center;
+  z-index: 2;
   pointer-events: none;
-  transform: translate(-50%, 180px) scale(0.5);
-  transition: all 0.8s cubic-bezier(.2,.8,.2,1);
-  z-index: 4;
+  transition: opacity 0.2s linear;
 }
 
 .letter-paper h2 {
-  color: #c75b83;
-  text-align: center;
   font-family: cursive;
-  margin-bottom: 25px;
+  color: #c75b83;
 }
 
 .letter-message {
-  color: #654653;
   font-family: cursive;
-  font-size: 18px;
+  font-size: 19px;
   line-height: 2;
+  color: #654653;
   white-space: pre-line;
   text-align: left;
 }
 
 .letter-doodles {
-  text-align: center;
   color: #e68aaa;
   font-size: 24px;
-  margin: 15px 0;
-}
-
-.close-letter {
-  display: block;
-  margin: 25px auto 0;
-  padding: 12px 22px;
-  background: #ed9fbd;
-  color: white;
-  border: none;
-  border-radius: 25px;
-  cursor: pointer;
-  font-size: 14px;
-}
-
-/* Second click: letter comes halfway out */
-  /* First click: only envelope flap opens */
-.letter-stage.flap-open .letter-paper {
-  opacity: 0;
-  pointer-events: none;
-  transform: translate(-50%, 180px) scale(0.5);
-}
-.letter-stage.letter-out .letter-paper {
-  opacity: 1;
-  pointer-events: none;
-  transform: translate(-50%, 130px) scale(0.78);
-}
-/* Third click: full letter opens */
-.letter-stage.open .letter-paper {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translate(-50%, 0) scale(1);
+  margin: 18px 0;
 }
 
 .letter-stage.flap-open .envelope-flap {
   transform: rotateX(180deg);
 }
 
-.letter-stage.open .envelope {
+.letter-stage.flap-open .envelope-seal {
   opacity: 0;
   pointer-events: none;
-  transform: translateY(220px) scale(0.7);
+}
+
+.letter-stage.flap-open .envelope {
   animation: none;
 }
 
+.letter-stage.flap-open .letter-paper {
+  pointer-events: auto;
+  z-index: 6;
+}
+
+.close-letter {
+  display: block;
+  margin: 25px auto 0;
+  background: #ed9fbd;
+}
+
 @media (max-width: 480px) {
+  .letter-experience {
+    min-height: 210vh;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .letter-stage {
+    min-height: 430px;
+    height: 72vh;
+  }
+
+  .envelope {
+    height: 190px;
+  }
+
   .letter-paper {
-    width: 94%;
-    min-height: 760px;
-    padding: 25px 18px;
+    padding: 22px 16px;
+    min-height: 440px;
   }
 
   .letter-message {
     font-size: 16px;
+    line-height: 1.8;
   }
-
-  .letter-stage.open {
-    min-height: 850px;
-  }
-}
-}
-  </style>
+}  </style>
 </head>
 <body>
 <section id="lock">
@@ -331,49 +378,7 @@ input{padding:13px;border:2px solid #f2a9bd;border-radius:14px;font-size:18px;te
   </div>
 </section>
 
-<section>
-  <h2>A Little Letter for You 💌</h2>
 
-<div class="letter-stage" id="letterStage">
-
-  <div class="letter-paper" id="letterPaper">
-    <div class="letter-doodles">♡ 🎀 ♡</div>
-
-    <h2>To My Favourite Person ❤️</h2>
-
-    <div class="letter-message">
-      My dearest Spider,
-
-      Happy Birthday! ❤️
-
-      I hope your day is filled with laughter, happiness and all the little things you love.
-
-      I hope you achieve everything you work so hard for. Keep dreaming, keep growing and never stop being you.
-
-      I'm really glad to have you in my life.
-
-      Lots of love,
-      Your favourite person ❤️
-    </div>
-
-    <div class="letter-doodles">♡ With love, always ♡</div>
-
-    <button class="close-letter" onclick="closeBirthdayLetter()">
-      Fold my letter 💌
-    </button>
-  </div>
-
-  <button class="envelope" id="birthdayEnvelope"
-    onclick="openBirthdayLetter()">
-    <span class="envelope-back"></span>
-    <span class="envelope-flap"></span>
-    <span class="envelope-front"></span>
-    <span class="envelope-seal">💗</span>
-    <span class="envelope-label">A little letter for you</span>
-  </button>
-
-</div>
-</section>
 
 <section>
   <h2>A Little Birthday Melody 🎵</h2>
@@ -395,8 +400,70 @@ input{padding:13px;border:2px solid #f2a9bd;border-radius:14px;font-size:18px;te
     <div id="confetti" class="cat"></div>
   </div>
 </section>
+ <section class="letter-experience" id="letterExperience">
 
-</main>
+  <h2>A Little Letter for You 💌</h2>
+
+  <div class="letter-upload">
+    <p>Choose some special photos for your letter 📸</p>
+    <input type="file" id="letterPhotos" accept="image/*" multiple>
+  </div>
+
+  <div class="letter-photo-stack" id="letterPhotoStack"></div>
+
+  <p class="letter-scroll-hint">
+    Open the little heart and scroll to unfold your surprise ↓ 💗
+  </p>
+
+  <div class="letter-stage" id="letterStage">
+
+    <div class="letter-paper" id="letterPaper">
+
+      <div class="letter-doodles">♡ 🎀 🌸 ♡</div>
+
+      <h2>To My Favourite Person ❤️</h2>
+
+      <div class="letter-message">
+My dearest Spider,
+
+Happy Birthday! ❤️
+
+I hope your day is filled with laughter, happiness and all the little things you love.
+
+I hope you achieve everything you work so hard for. Keep dreaming, keep growing and never stop being you.
+
+I'm really glad to have you in my life.
+
+Lots of love,
+Your favourite person ❤️
+      </div>
+
+      <div class="letter-doodles">🎈 ♡ With love, always ♡ 🎈</div>
+
+      <button class="close-letter" onclick="closeBirthdayLetter()">
+        Fold my letter 💌
+      </button>
+
+    </div>
+
+    <div class="envelope" id="birthdayEnvelope">
+
+      <span class="envelope-back"></span>
+      <span class="envelope-flap"></span>
+      <span class="envelope-front"></span>
+
+      <button class="envelope-seal"
+        type="button"
+        onclick="openBirthdayLetter()">
+        💗
+      </button>
+
+      <span class="envelope-label">A little letter for you</span>
+
+    </div>
+
+  </div>
+</section></main>
 
 <footer>Made with lots of love for Spider ❤️ 🐱</footer>
 
@@ -478,27 +545,67 @@ document.getElementById('music').addEventListener('change',function(){
   const stage = document.getElementById('letterStage');
   const label = document.querySelector('.envelope-label');
 
-  if (!stage.classList.contains('flap-open')) {
-    stage.classList.add('flap-open');
-    label.textContent = 'Tap again 💗';
-  }
-  else if (!stage.classList.contains('letter-out')) {
-    stage.classList.add('letter-out');
-    label.textContent = 'One more time 💌';
-  }
-  else if (!stage.classList.contains('open')) {
-    stage.classList.add('open');
-    label.textContent = 'Your letter is open ❤️';
-  }
+  stage.classList.add('flap-open');
+  label.textContent = 'Now scroll slowly to unfold 💗';
+
+  updateLetterReveal();
 }
 
 function closeBirthdayLetter() {
   const stage = document.getElementById('letterStage');
   const label = document.querySelector('.envelope-label');
 
-  stage.classList.remove('flap-open', 'letter-out', 'open');
+  stage.classList.remove('flap-open');
+  stage.style.setProperty('--reveal', '0');
+  stage.style.setProperty('--paper-y', '-35%');
+  stage.style.setProperty('--paper-scale', '0.72');
   label.textContent = 'A little letter for you';
 }
+
+function updateLetterReveal() {
+  const experience = document.getElementById('letterExperience');
+  const stage = document.getElementById('letterStage');
+
+  if (!experience || !stage || !stage.classList.contains('flap-open')) return;
+const rect = experience.getBoundingClientRect();
+  
+const total = rect.height;
+  const progress = total > 0
+    ? Math.max(0, Math.min(1, (window.innerHeight - rect.top) / total))
+    : 0;
+
+  stage.style.setProperty('--reveal', progress);
+  stage.style.setProperty('--paper-y', ${-35 - progress * 55}%);
+stage.style.setProperty('--paper-scale', ${0.72 + progress * 0.28});
+}
+
+window.addEventListener('scroll', updateLetterReveal);
+window.addEventListener('resize', updateLetterReveal);
+document.getElementById('letterPhotos').addEventListener('change', function() {
+  const box = document.getElementById('letterPhotoStack');
+
+  [...this.files].forEach(file => {
+    if (!file.type.startsWith('image/')) return;
+
+    const frame = document.createElement('div');
+    frame.className = 'letter-photo';
+
+    const img = document.createElement('img');
+    img.src = URL.createObjectURL(file);
+    img.alt = 'Birthday memory';
+
+    const caption = document.createElement('input');
+    caption.type = 'text';
+    caption.placeholder = 'Write a little birthday message...';
+
+    frame.appendChild(img);
+    frame.appendChild(caption);
+    box.appendChild(frame);
+  });
+
+  this.value = '';
+});
 </script>
+
 </body>
 </html>
