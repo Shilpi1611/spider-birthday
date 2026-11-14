@@ -469,7 +469,7 @@ Your favourite person ❤️
 
 <script>
   // Birthday falling decorations
-function createBirthdayDecoration() {
+function scriptdayDecoration() {
   const symbols = [
     '💗', '💕', '💖', '🎀', '🌸', '🎉',
     '🕷️', '🎮', '🕹️', '🎧', '👾',
@@ -495,7 +495,7 @@ function startBirthdayDecorations() {
   if (birthdayDecorationsStarted) return;
 
   birthdayDecorationsStarted = true;
-  setInterval(createBirthdayDecoration, 450);
+  setInterval(scriptdayDecoration, 450);
 }
 function unlock(){
   if(document.getElementById('pass').value==='1611'){
@@ -575,8 +575,7 @@ const total = rect.height;
     : 0;
 
   stage.style.setProperty('--reveal', progress);
-  stage.style.setProperty('--paper-y', ${-35 - progress * 55}%);
-stage.style.setProperty('--paper-scale', ${0.72 + progress * 0.28});
+  stage.style.setProperty('--paper-y', '-35%');
 }
 
 window.addEventListener('scroll', updateLetterReveal);
