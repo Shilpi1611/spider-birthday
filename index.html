@@ -77,7 +77,114 @@
   color: #bd765d;
   font-size: 36px;
 }
+/* Hand-drawn scrapbook doodles */
 
+.cactus-doodle {
+  left: 28px;
+  bottom: 85px;
+  width: 42px;
+  height: 48px;
+  animation: doodleFloat 3s ease-in-out infinite;
+}
+
+.cactus-doodle::before {
+  content: "";
+  position: absolute;
+  left: 12px;
+  bottom: 0;
+  width: 17px;
+  height: 36px;
+  border: 3px solid #66845b;
+  border-bottom: 0;
+  border-radius: 14px 14px 3px 3px;
+}
+
+.cactus-doodle::after {
+  content: "";
+  position: absolute;
+  left: 3px;
+  top: 19px;
+  width: 34px;
+  height: 18px;
+  border-left: 3px solid #66845b;
+  border-right: 3px solid #66845b;
+  border-radius: 8px;
+}
+
+.camera-doodle {
+  top: 105px;
+  right: 30px;
+  width: 38px;
+  height: 27px;
+  border: 3px solid #bd765d;
+  border-radius: 7px;
+  animation: doodleFloat 3.5s ease-in-out infinite;
+}
+
+.camera-doodle::before {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border: 3px solid #bd765d;
+  border-radius: 50%;
+  left: 9px;
+  top: 4px;
+}
+
+.camera-doodle::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 5px;
+  background: #bd765d;
+  border-radius: 3px 3px 0 0;
+  top: -7px;
+  left: 5px;
+}
+
+.heart-doodle {
+  top: 210px;
+  right: 75px;
+  color: #b85e55;
+  font-family: Georgia, serif;
+  font-size: 43px;
+  transform: rotate(-15deg);
+  animation: heartBeat 2.5s ease-in-out infinite;
+}
+
+.memories-doodle,
+.vibes-doodle {
+  color: #a77d5d;
+  opacity: 0.22;
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: 30px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.memories-doodle {
+  left: 18px;
+  top: 48%;
+  transform: rotate(-12deg);
+}
+
+.vibes-doodle {
+  right: 15px;
+  bottom: 35%;
+  transform: rotate(10deg);
+}
+
+@keyframes doodleFloat {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -6px; }
+}
+
+@keyframes heartBeat {
+  0%, 100% { scale: 1; }
+  50% { scale: 1.12; }
+}
 .scrapbook-upload {
   max-width: 450px;
   margin: 25px auto;
@@ -631,11 +738,15 @@ input{padding:13px;border:2px solid #f2a9bd;border-radius:14px;font-size:18px;te
 
   <div class="scrapbook-board">
 
-    <div class="scrapbook-label">SUMMER EDITION ✦</div>
 
     <div class="scrapbook-decoration sun-doodle">☀️</div>
     <div class="scrapbook-decoration star-doodle">✦</div>
     <div class="scrapbook-decoration flower-doodle">✿</div>
+    <div class="scrapbook-decoration cactus-doodle" aria-hidden="true"> </div>
+<div class="scrapbook-decoration camera-doodle" aria-hidden="true"> </div>
+<div class="scrapbook-decoration heart-doodle" aria-hidden="true">♡</div>
+<div class="scrapbook-decoration memories-doodle" aria-hidden="true">memories</div>
+<div class="scrapbook-decoration vibes-doodle" aria-hidden="true">vibes</div>
 
     <p class="scrapbook-note">little moments, big memories</p>
 
