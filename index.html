@@ -241,8 +241,8 @@ input{padding:13px;border:2px solid #f2a9bd;border-radius:14px;font-size:18px;te
   border-radius: 12px;
   box-shadow: 0 15px 35px #a84f7025;
   opacity: calc(0.2 + var(--reveal) * 0.8);
- transform: translate(-50%, var(--paper-y)) 
-   scale(var(--paper-scale));
+ transform: translate(-50%, var(--paper-y, -35%))
+   scale(var(--paper-scale, 0.72));
   transform-origin: center;
   z-index: 2;
   pointer-events: none;
@@ -284,7 +284,7 @@ input{padding:13px;border:2px solid #f2a9bd;border-radius:14px;font-size:18px;te
 
 .letter-stage.flap-open .letter-paper {
   pointer-events: auto;
-  z-index: 6;
+  z-index: 2;
 }
 
 .close-letter {
@@ -557,7 +557,7 @@ function closeBirthdayLetter() {
 
   stage.classList.remove('flap-open');
   stage.style.setProperty('--reveal', '0');
-  stage.style.setProperty('--paper-y', '-35%');
+  stage.style.setProperty('--paper-y', '-25%');
   stage.style.setProperty('--paper-scale', '0.72');
   label.textContent = 'A little letter for you';
 }
@@ -575,7 +575,8 @@ const total = rect.height;
     : 0;
 
   stage.style.setProperty('--reveal', progress);
-  stage.style.setProperty('--paper-y', '-35%');
+ stage.style.setProperty('--paper-y', (25 - progress * 80) + '%');
+stage.style.setProperty('--paper-scale', 0.72 + progress * 0.28);
 }
 
 window.addEventListener('scroll', updateLetterReveal);
