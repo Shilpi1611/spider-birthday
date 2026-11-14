@@ -1056,14 +1056,13 @@ function startBirthdayDecorations() {
 }
 <script>
 function unlock(){
-  if(document.getElementById('pass').value==='1611'){
+  if(document.getElementById('pass').value === '1611'){
     document.getElementById('lock').classList.add('hidden');
     document.getElementById('site').classList.remove('hidden');
     startBirthdayDecorations();
-  }else{
-    document.getElementById('error').textContent='Oops! Try our special date again 💗';
+  } else {
+    document.getElementById('error').textContent = 'Oops! Try our special date again 💗';
   }
-<script>
 }
 function reveal(message){
   document.getElementById('revealText').textContent=message;
