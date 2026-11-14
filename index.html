@@ -5,55 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy Birthday Spider ❤️</title>
     <style>
-        #site > section:not(#gallery) {
-  display: none !important;
-}
-        #newBirthdayFlow {
-  text-align: center;
-  padding: 25px 12px;
-}
-#newBirthdayFlow .flow-screen {
-  min-height: 70vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 18px;
-}
-#newBirthdayFlow .flow-screen[hidden] {
-  display: none !important;
-}
-#newBirthdayFlow h1 {
-  color: #e84383;
-  font-size: clamp(2rem, 6vw, 3rem);
-}
-#newBirthdayFlow button {
-  border: 0;
-  border-radius: 30px;
-  padding: 13px 25px;
-  background: #ed78a8;
-  color: white;
-  font-size: 1rem;
-  cursor: pointer;
-  margin: 5px;
-}
-#newBirthdayFlow .blueCake {
-  font-size: 4rem;
-  line-height: 1.7;
-  background: #dff4ff;
-  border-radius: 25px;
-  padding: 20px;
-  border: 4px solid #72c9f5;
-}
-#newBirthdayFlow .birthdaySquad {
-  font-size: 3rem;
-  line-height: 1.8;
-  animation: squadDance 1s infinite alternate;
-}
-@keyframes squadDance {
-  from { transform: rotate(-3deg) scale(1); }
-  to { transform: rotate(3deg) scale(1.06); }
-}
       /* Hand-drawn doodles attached to individual photos */
 .scrapbook-board .polaroid {
   overflow: visible;
@@ -167,7 +118,6 @@
   transform: rotate(-10deg);
 }
 
-  <style>
 /* Vintage scrapbook gallery */
 .scrapbook-section {
   padding: 45px 14px;
@@ -191,7 +141,7 @@
   border: 9px solid #e5d1b3;
   border-radius: 5px;
   box-shadow: 5px 8px 22px #593b2825;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .scrapbook-label {
@@ -469,6 +419,48 @@
     right: 15px;
   }
 }  
+
+*{box-sizing:border-box}
+body{margin:0;font-family:Georgia,serif;background:#fff0f3;color:#543747;text-align:center}
+section{padding:55px 18px;max-width:850px;margin:auto}
+h1{font-size:clamp(2.2rem,8vw,4rem);color:#d94f78}
+h2{color:#c84e75}
+p{line-height:1.7}
+button{border:0;border-radius:25px;padding:13px 23px;background:#e85d86;color:white;font-size:16px;cursor:pointer;margin:8px}
+button:hover{transform:scale(1.05)}
+.card{background:#fff;border:2px dashed #f2a9bd;border-radius:22px;padding:22px;margin:15px auto;box-shadow:0 6px 18px #e7b5c455}
+.hidden{display:none}
+input{padding:13px;border:2px solid #f2a9bd;border-radius:14px;font-size:18px;text-align:center;width:180px}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:14px}
+.polaroid{
+  background:#fff;
+  padding:12px 12px 18px;
+  border-radius:5px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.15);
+  transform:rotate(-1deg);
+}
+
+.polaroid img{
+  width:100%;
+  height:180px;
+  object-fit:contain;
+  display:block;
+  border-radius:3px;
+  background:#fff5f8;
+}
+
+.photo-caption{
+  width:100%;
+  box-sizing:border-box;
+  border:none;
+  outline:none;
+  background:transparent;
+  text-align:center;
+  font-family:cursive;
+  font-size:15px;
+  color:#b45b78;
+  padding:12px 3px 2px;
+}
   /* Falling hearts and confetti */
 .falling-decoration {
   position: fixed;
@@ -853,48 +845,6 @@
   }
 }  </style>
 </head>
-    <script>
-function showBirthdayScreen(id) {
-  document.querySelectorAll('#newBirthdayFlow .flow-screen').forEach(screen => {
-    screen.hidden = true;
-  });
-  document.getElementById(id).hidden = false;
-}
-
-function birthdayYes() {
-  document.getElementById('welcomeReaction').textContent = 'HURRREEE! 🎉🥳💗';
-  setTimeout(() => showBirthdayScreen('cakeScreen'), 1600);
-}
-
-function birthdayNo() {
-  document.getElementById('welcomeReaction').textContent = '😾 HOW DARE YOU! Try again!';
-}
-
-function blowBirthdayCandles() {
-  document.getElementById('candleText').textContent = '✨💨 Wish made! ✨';
-  document.querySelector('.blueCake').innerHTML = '💨<br>🎂';
-  setTimeout(() => showBirthdayScreen('partyScreen'), 1800);
-}
-
-function showGiftQuestion() {
-  showBirthdayScreen('giftQuestion');
-}
-
-function showGiftCollection() {
-  showBirthdayScreen('giftCollection');
-}
-
-function openBirthdayGift(gift) {
-  if (gift === 'flowers') {
-    showBirthdayScreen('flowersGift');
-  } else if (gift === 'letter') {
-    showBirthdayScreen('letterGift');
-  } else if (gift === 'photos') {
-    document.getElementById('newBirthdayFlow').style.display = 'none';
-    document.getElementById('gallery').style.display = 'block';
-  }
-}
-</script>
 <body>
 <section id="lock">
   <div class="cat">🐱 🎀 🐱</div>
@@ -908,59 +858,7 @@ function openBirthdayGift(gift) {
 </section>
 
 <main id="site" class="hidden">
-<div id="newBirthdayFlow">
-  <section id="welcomeScreen" class="flow-screen">
-    <h1>A little surprise for you! 💗</h1>
-    <p>Are you ready?</p>
-    <button onclick="birthdayYes()">YES! 💖</button>
-    <button onclick="birthdayNo()">NO 🙄</button>
-    <div id="welcomeReaction"></div>
-  </section>
 
-  <section id="cakeScreen" class="flow-screen" hidden>
-    <h1>Make a wish! 🎂</h1>
-    <div class="blueCake">🕯️🕯️🕯️<br>🎂</div>
-    <p id="candleText">Blow the candles!</p>
-    <button onclick="blowBirthdayCandles()">Blow candles 💨</button>
-  </section>
-
-  <section id="partyScreen" class="flow-screen" hidden>
-    <h1>Yayyy Happy Birthday baby! 🎉</h1>
-    <div class="birthdaySquad">
-      🐶💃 🐶🕺 🐱😎 🐱😎
-      <br>🕷️ 🦸 💚
-      <br>🥳 🎊 🎈 🎉
-    </div>
-    <button onclick="showGiftQuestion()">Continue 💗</button>
-  </section>
-
-  <section id="giftQuestion" class="flow-screen" hidden>
-    <h1>Are you ready for gifts? 🎁</h1>
-    <button onclick="showGiftCollection()">YESSS! 💖</button>
-    <button onclick="document.getElementById('giftReaction').textContent='Awww, gifts are waiting for you! 🥺'">NO</button>
-    <p id="giftReaction"></p>
-  </section>
-
-  <section id="giftCollection" class="flow-screen" hidden>
-    <h1>Three little gifts for you 💝</h1>
-    <button onclick="openBirthdayGift('photos')">📸 Our Memories</button>
-    <button onclick="openBirthdayGift('flowers')">💐 Flowers for You</button>
-    <button onclick="openBirthdayGift('letter')">💌 A Letter for You</button>
-  </section>
-
-  <section id="flowersGift" class="flow-screen" hidden>
-    <h1>Flowers for my favourite person 💐</h1>
-    <div style="font-size:5rem">🌷🌸🌹🌻💐</div>
-    <p>A little bouquet, just for you. ❤️</p>
-    <button onclick="showGiftCollection()">Back to Gifts</button>
-  </section>
-
-  <section id="letterGift" class="flow-screen" hidden>
-    <h1>Your Birthday Letter 💌</h1>
-    <p>Your special letter and music will be here.</p>
-    <button onclick="showGiftCollection()">Back to Gifts</button>
-  </section>
-</div>
 <section>
   <div class="cat">🐱💗🎂🐱</div>
   <h1>Happy Birthday, Spider!</h1>
@@ -977,13 +875,6 @@ function openBirthdayGift(gift) {
 
     <div class="scrapbook-decoration sun-doodle">☀️</div>
     <div class="scrapbook-decoration flower-doodle">✿</div>
-       <div class="scrapbook-decoration star-doodle">✦</div>
-    <div class="scrapbook-decoration cactus-doodle" aria-hidden="true"> </div>
-<div class="scrapbook-decoration camera-doodle" aria-hidden="true"> </div>
-<div class="scrapbook-decoration heart-doodle" aria-hidden="true">♡</div>
-<div class="scrapbook-decoration memories-doodle" aria-hidden="true">memories</div>
-<div class="scrapbook-decoration vibes-doodle" aria-hidden="true">vibes</div>
-
    
     <p class="scrapbook-note">little moments, big memories</p>
 
