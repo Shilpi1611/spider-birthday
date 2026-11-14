@@ -80,6 +80,10 @@ input{padding:13px;border:2px solid #f2a9bd;border-radius:14px;font-size:18px;te
   transition: min-height 0.6s ease;
 }
 
+.letter-stage.flap-open {
+  min-height: 500px;
+}
+
 .letter-stage.open {
   min-height: 850px;
   align-items: flex-start;
@@ -87,8 +91,9 @@ input{padding:13px;border:2px solid #f2a9bd;border-radius:14px;font-size:18px;te
 
 .envelope {
   position: relative;
-  width: 280px;
-  height: 185px;
+  width: 320px;
+height: 210px;
+  max-width: 90vw;
   border: none;
   background: #f6a9c5;
   border-radius: 8px;
@@ -210,6 +215,12 @@ input{padding:13px;border:2px solid #f2a9bd;border-radius:14px;font-size:18px;te
   font-size: 14px;
 }
 
+.letter-stage.flap-open .letter-paper {
+  opacity: 1;
+  pointer-events: none;
+  transform: translate(-50%, 80px) scale(0.78);
+}
+
 .letter-stage.open .letter-paper {
   opacity: 1;
   pointer-events: auto;
@@ -223,7 +234,7 @@ input{padding:13px;border:2px solid #f2a9bd;border-radius:14px;font-size:18px;te
   animation: none;
 }
 
-.letter-stage.open .envelope-flap {
+.letter-stage.flap-open .envelope-flap {
   transform: rotateX(180deg);
 }
 
@@ -444,8 +455,26 @@ document.getElementById('music').addEventListener('change',function(){
     document.getElementById('player').src=URL.createObjectURL(this.files[0]);
   }
 });
-  function openBirthdayLetter() {
-  document.getElementById('letterStage').classList.add('open');
+ function openBirthdayLetter() {
+  const stage = document.getElementById('letterStage');
+  const label = document.querySelector('.envelope-label');
+
+  if (!stage.classList.contains('flap-open')) {
+    stage.classList.add('flap-open');
+    label.textContent = 'Tap again 💗';
+  } 
+  else if (!stage.classList.contains('open')) {
+    stage.classList.add('open');
+    label.textContent = 'Your letter is open 💌';
+  }
+}
+
+function closeBirthdayLetter() {
+  const stage = document.getElementById('letterStage');
+  const label = document.querySelector('.envelope-label');
+
+  stage.classList.remove('open', 'flap-open');
+  label.textContent = 'A little letter for you';
 }
 
 function closeBirthdayLetter() {
