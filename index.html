@@ -346,11 +346,13 @@ input[type=file]{max-width:100%;margin:12px}
 .tape{background:#d6c9f5;border-radius:18px;padding:30px;margin:20px auto;width:260px}
 .tape span{font-size:45px}
 .letter{text-align:left;white-space:pre-wrap;line-height:1.8}
- /* Final responsive birthday bunting */
+ 
+/* Reference-style birthday bunting rope */
+
 .birthday-bunting {
-  width: min(92%, 650px);
-  height: 150px;
-  margin: 10px auto;
+  width: min(94%, 560px);
+  height: 125px;
+  margin: 5px auto 15px;
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -362,12 +364,13 @@ input[type=file]{max-width:100%;margin:12px}
 .birthday-bunting::before {
   content: "";
   position: absolute;
-  left: 2%;
   top: 0;
+  left: 2%;
   width: 96%;
-  height: 95px;
-  border-bottom: 3px solid #9b7184;
-  border-radius: 0 0 50% 50%;
+  height: 65px;
+  border-bottom: 2px solid #9b7184;
+  border-radius: 0 0 50% 50% / 0 0 100% 100%;
+  z-index: 1;
 }
 
 .birthday-bunting .flag {
@@ -376,40 +379,68 @@ input[type=file]{max-width:100%;margin:12px}
   flex: 0 0 18%;
   height: 72px;
   margin: 0;
-  padding-top: 10px;
+  padding: 0;
   clip-path: polygon(0 0, 100% 0, 50% 100%);
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  font-size: 20px;
-  box-sizing: border-box;
 }
 
-.birthday-bunting .flag:nth-child(1) { margin-top: 0; }
-.birthday-bunting .flag:nth-child(2) { margin-top: 15px; }
-.birthday-bunting .flag:nth-child(3) { margin-top: 23px; }
-.birthday-bunting .flag:nth-child(4) { margin-top: 15px; }
-.birthday-bunting .flag:nth-child(5) { margin-top: 0; }
+/* First: Purple with pink dots */
+.birthday-bunting .flag:nth-child(1) {
+  margin-top: 0;
+  background-color: #a78be7;
+  background-image: radial-gradient(#ed659b 2.5px, transparent 3px);
+  background-size: 15px 15px;
+}
+
+/* Second: Light pink */
+.birthday-bunting .flag:nth-child(2) {
+  margin-top: 15px;
+  background: #f7c9dc;
+}
+
+/* Third: Pink diagonal stripes */
+.birthday-bunting .flag:nth-child(3) {
+  margin-top: 25px;
+  background: repeating-linear-gradient(
+    45deg,
+    #e84b85 0 9px,
+    #fff0f4 9px 18px
+  );
+}
+
+/* Fourth: Lavender purple */
+.birthday-bunting .flag:nth-child(4) {
+  margin-top: 15px;
+  background: #a78be7;
+}
+
+/* Fifth: Pink horizontal stripes */
+.birthday-bunting .flag:nth-child(5) {
+  margin-top: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    #e85b8b 0 8px,
+    #fff0f4 8px 16px
+  );
+}
 
 @media (max-width: 600px) {
   .birthday-bunting {
     width: 94%;
-    height: 125px;
+    height: 115px;
   }
 
   .birthday-bunting .flag {
     flex-basis: 18%;
-    height: 60px;
-    font-size: 16px;
+    height: 65px;
   }
 
   .birthday-bunting .flag:nth-child(2),
   .birthday-bunting .flag:nth-child(4) {
-    margin-top: 12px;
+    margin-top: 13px;
   }
 
   .birthday-bunting .flag:nth-child(3) {
-    margin-top: 20px;
+    margin-top: 22px;
   }
 }
  /* Birthday cake screen */
@@ -1280,11 +1311,11 @@ input[type=file]{max-width:100%;margin:12px}
 </div>
 
   <div class="birthday-bunting">
-    <div class="flag star-flag">★</div>
-    <div class="flag stripe-flag"></div>
-    <div class="flag lavender-flag"></div>
-    <div class="flag pink-flag"></div>
-    <div class="flag star-flag">★</div>
+    <div class="flag"></div>
+<div class="flag"></div>
+<div class="flag"></div>
+<div class="flag"></div>
+<div class="flag"></div>
   </div>
 
   <button onclick="go(5)">Let's celebrate →</button>
