@@ -923,6 +923,76 @@ input[type=file]{max-width:100%;margin:12px}
   outline-offset: -10px;
   box-shadow: 0 0 0 5px rgba(180, 157, 213, .18);
 }
+ /* Proper layered birthday cake */
+#s5 .cake-body {
+  width: 270px;
+  height: 155px;
+  margin: 0 auto;
+  border-radius: 16px 16px 12px 12px;
+  background: #b9a5df;
+  border-top: 0;
+  border-bottom: 0;
+  box-shadow: 0 9px 0 #9880c2;
+  position: relative;
+  overflow: visible;
+}
+
+/* Top cream layer */
+#s5 .cake-icing {
+  position: absolute;
+  top: -10px;
+  left: 0;
+  width: 100%;
+  height: 24px;
+  border-radius: 14px 14px 50% 50%;
+  background:
+    radial-gradient(circle, #d94f68 0 5px, transparent 5.5px),
+    #fff0dc;
+  background-size: 28px 22px, auto;
+}
+
+/* Bottom cream piping with cherries */
+#s5 .cake-body::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  border-radius: 0 0 14px 14px;
+  background:
+    radial-gradient(circle, #d94f68 0 5px, transparent 5.5px),
+    #fff0dc;
+  background-size: 28px 20px, auto;
+}
+
+/* Bold birthday lettering */
+#s5 .cake-writing {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  color: white;
+  font-family: Impact, "Arial Black", sans-serif;
+  font-size: 27px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  line-height: 1.1;
+  text-align: center;
+}
+
+/* White dotted decorative borders */
+#s5 .cake-dots {
+  display: block;
+  width: 100%;
+  color: white;
+  font-size: 19px;
+  font-weight: bold;
+  letter-spacing: 5px;
+  line-height: 1.2;
+  white-space: nowrap;
+  text-align: center;
+  overflow: hidden;
+}
 </style>
 </head>
 <body>
