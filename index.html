@@ -733,6 +733,103 @@ input[type=file]{max-width:100%;margin:12px}
   font-weight: bold;
   cursor: pointer;
 }
+ /* Birthday words pop one by one */
+#s5 .birthday-heading span {
+  display: inline-block;
+  opacity: 0;
+  transform: scale(.5) translateY(15px);
+  animation: wordPop .5s ease forwards;
+}
+
+#s5 .birthday-heading span:nth-child(1) {
+  animation-delay: .2s;
+}
+
+#s5 .birthday-heading span:nth-child(2) {
+  animation-delay: .8s;
+}
+
+#s5 .birthday-heading span:nth-child(3) {
+  animation-delay: 1.4s;
+}
+
+@keyframes wordPop {
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Teddy in corner */
+#s5 .corner-teddy {
+  position: absolute;
+  bottom: 18px;
+  left: 17px;
+  font-size: 34px;
+  animation: teddyTilt 2s ease-in-out infinite alternate;
+}
+
+@keyframes teddyTilt {
+  to { transform: rotate(15deg); }
+}
+
+/* Tilted star and strawberry */
+#s5 .cake-star {
+  animation: starTilt 2s ease-in-out infinite alternate;
+}
+
+#s5 .cake-strawberry {
+  animation: berryTilt 2s ease-in-out infinite alternate;
+}
+
+@keyframes starTilt {
+  to { transform: rotate(15deg); }
+}
+
+@keyframes berryTilt {
+  to { transform: rotate(-15deg); }
+}
+ /* Bigger lavender cake */
+#s5 .birthday-cake-card {
+  width: min(97%, 490px);
+  min-height: 650px;
+  padding-bottom: 45px;
+}
+
+#s5 .cake-illustration {
+  width: 285px;
+  margin: 0 auto 30px;
+  transform: scale(1.08);
+}
+
+#s5 .cake-body {
+  height: 165px;
+  background: #c6b4e5;
+  border-top: 15px solid #fff0dc;
+  border-bottom: 15px solid #fff0dc;
+  box-shadow: 0 8px 0 #a895ca;
+}
+
+/* Cream and cherry decoration */
+#s5 .cake-icing {
+  background:
+    radial-gradient(circle, #d95b70 0 4px, transparent 4.5px),
+    #fff0dc;
+  background-size: 27px 15px, auto;
+}
+
+/* White dots around HAPPY BIRTHDAY */
+#s5 .cake-writing {
+  color: white;
+  font-size: 25px;
+  line-height: 1.05;
+  text-align: center;
+}
+ #s5 .cake-dots {
+  color: white;
+  font-size: 15px;
+  letter-spacing: 2px;
+}
 </style>
 </head>
 <body>
@@ -854,7 +951,11 @@ input[type=file]{max-width:100%;margin:12px}
       <span class="cake-strawberry">🍓</span>
     </div>
 
-    <h1>It's your<br>birthday!!</h1>
+    <h1 class="birthday-heading">
+  <span>It's</span>
+  <span>your</span>
+  <span>birthday!!</span>
+</h1>
 
     <div class="cake-illustration">
 
@@ -866,7 +967,11 @@ input[type=file]{max-width:100%;margin:12px}
 
       <div class="cake-body" id="cake">
         <div class="cake-icing"></div>
-        <div class="cake-writing">HAPPY<br>BIRTHDAY</div>
+       <div class="cake-writing">
+  <div class="cake-dots">• • • • • • •</div>
+  HAPPY<br>BIRTHDAY
+  <div class="cake-dots">• • • • • • •</div>
+</div>
         <div class="cake-bottom"></div>
       </div>
 
