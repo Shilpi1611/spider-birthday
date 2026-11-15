@@ -5,6 +5,56 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy Birthday Spider 💗</title>
 <style>
+ .music-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin: 25px auto;
+}
+
+.cassette-circle {
+  width: 125px;
+  height: 125px;
+  min-width: 125px;
+  border-radius: 50%;
+  background: #e9c4b7;
+  border: 5px solid #fff0d9;
+  box-shadow: 0 4px 12px #8274a555;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.cassette-inner {
+  width: 85px;
+  height: 85px;
+  border: 3px dashed #a77e79;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cassette-play {
+  width: 43px;
+  height: 43px;
+  border-radius: 50%;
+  background: #fff5df;
+  color: #886c79;
+  border: 2px solid #c9a5a0;
+  font-size: 19px;
+  padding: 0;
+  margin: 0;
+}
+
+.music-caption {
+  font-family: cursive;
+  font-size: 19px;
+  color: #78649a;
+  max-width: 115px;
+}
  .scrapbook-strip {
   width: 100%;
   max-width: 230px;
@@ -172,12 +222,32 @@ input[type=file]{max-width:100%;margin:12px}
 
 <section class="screen" id="s3">
 <div class="card">
-<h1>A Song for You 🎶</h1>
-<div class="vinyl"></div>
-<p>Choose a song from your device</p>
-<input type="file" id="music1" accept="audio/*">
-<audio id="player1" controls></audio>
-<br><button onclick="go(4)">Next →</button>
+
+  <div class="music-row">
+
+    <div class="cassette-circle">
+      <div class="cassette-inner">
+        <button class="cassette-play"
+          onclick="toggleMusic()"
+          id="musicPlay">▶</button>
+      </div>
+    </div>
+
+    <div class="music-caption">
+      LET'S PLAY SONG
+    </div>
+
+  </div>
+
+  <p>Choose your favourite song 💗</p>
+
+  <input type="file" id="music1" accept="audio/*">
+
+  <audio id="player1"></audio>
+
+  <br>
+  <button onclick="go(4)">Next →</button>
+
 </div>
 </section>
 
@@ -256,6 +326,27 @@ Your favourite person 💕</div>
  const strip = document.getElementById("scrapbookStrip");
  strip.hidden = !strip.hidden;
 }
+ function toggleMusic() {
+  const player = document.getElementById("player1");
+  const btn = document.getElementById("musicPlay");
+
+  if (!player.src) {
+    alert("Please choose a song first! 🎵");
+    return;
+  }
+
+  if (player.paused) {
+    player.play();
+    btn.textContent = "Ⅱ";
+  } else {
+    player.pause();
+    btn.textContent = "▶";
+  }
+}
+
+document.getElementById("player1").addEventListener("ended", () => {
+  document.getElementById("musicPlay").textContent = "▶";
+});
 let pin="";
 function go(n){
  document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));
