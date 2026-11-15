@@ -522,6 +522,76 @@ input[type=file]{max-width:100%;margin:12px}
     margin-top: 35px;
   }
 }
+ #s5 {
+  background-color: #f8efda;
+  background-image:
+    linear-gradient(90deg, #e9d9b9 1px, transparent 1px),
+    linear-gradient(#e9d9b9 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+
+#s5 .birthday-cake-card {
+  width: min(92%, 430px);
+  padding: 30px 18px;
+  background: #e8def4;
+  clip-path: polygon(3% 2%, 97% 0%, 100% 96%, 4% 100%, 0% 48%);
+  min-height: 570px;
+}
+
+#s5 h1 {
+  font: bold clamp(30px, 7vw, 42px) "Trebuchet MS", sans-serif;
+  color: #65527f;
+  line-height: 1.2;
+}
+
+.cake-decor {
+  display: flex;
+  justify-content: space-between;
+  font-size: 38px;
+}
+
+.cake-illustration {
+  margin: 65px auto 35px;
+  width: 240px;
+}
+
+.cake-candles {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  height: 55px;
+}
+
+.cake-candles i {
+  width: 10px;
+  height: 42px;
+  background: repeating-linear-gradient(
+    45deg, #f4a1ae 0 5px, #fff4e5 5px 10px
+  );
+  border-radius: 4px;
+}
+
+.cake-body {
+  height: 140px;
+  background: #a58bd0;
+  border-radius: 18px 18px 12px 12px;
+  border-top: 12px dotted #fff0dc;
+  border-bottom: 12px dotted #fff0dc;
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+
+.cake-writing {
+  color: white;
+  font: bold 27px "Trebuchet MS", sans-serif;
+  line-height: 1.1;
+}
+
+#s5 #cakeText {
+  color: #65527f;
+  font-size: 21px;
+}
 </style>
 </head>
 <body>
@@ -639,33 +709,29 @@ input[type=file]{max-width:100%;margin:12px}
   <div class="birthday-cake-card">
 
     <div class="cake-decor">
-      <span class="cake-star">⭐</span>
-      <span class="cake-strawberry">🍓</span>
+      <span>⭐</span>
+      <span>🍓</span>
     </div>
 
     <h1>It's your<br>birthday!!</h1>
 
-    <div class="cake-scene">
-      <div class="candles">
-        <span>🕯️</span>
-        <span>🕯️</span>
-        <span>🕯️</span>
+    <div class="cake-illustration">
+      <div class="cake-candles">
+        <i></i><i></i><i></i>
       </div>
-
-      <div class="cake" id="cake">
-        <div class="cake-top">🎂</div>
-        <div class="cake-banner">HAPPY<br>BIRTHDAY</div>
+    <div class="cake-body" id="cake">
+        <div class="cake-icing"></div>
+        <div class="cake-writing">HAPPY<br>BIRTHDAY</div>
       </div>
     </div>
 
     <p id="cakeText">Let's Celebrate</p>
-
     <button onclick="blow()">Blow candles 🕯️</button>
     <button onclick="go(6)">Done →</button>
 
   </div>
 </section>
-
+ 
 <section class="screen" id="s6">
 <div class="card">
 <h1>A Little Gift 🎁</h1>
