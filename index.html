@@ -2701,6 +2701,21 @@ body { overflow:hidden !important; }
     transform: translateY(-10px) rotate(8deg);
   }
 }
+  #s4 .corner-flower {
+  position: absolute;
+  top: 100px;
+  left: 18px;
+  font-size: 58px;
+  z-index: 10;
+  pointer-events: none;
+  transform-origin: center;
+  animation: flowerSpin 4s linear infinite;
+}
+
+@keyframes flowerSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
 </style>
 </head>
 <body>
@@ -2794,8 +2809,7 @@ body { overflow:hidden !important; }
     <span>because...</span>
   </div>
   </div>
-<div class="corner-heart left">💗</div>
-<div class="corner-heart right">💗</div>  
+ <div class="corner-flower">🌸</div>
   <!-- BUNTING -->
   <div class="birthday-bunting">
     <div class="flag"></div>
