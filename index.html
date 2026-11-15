@@ -1209,6 +1209,35 @@ input[type=file]{max-width:100%;margin:12px}
   content: "🎩";
   font-size: 110px;
 }
+ 
+/* Fix Screen 4 decoration layout */
+
+#s4 .birthday-decor {
+  width: 100%;
+  display: block;
+  position: relative;
+}
+
+#s4 .peek-teddy {
+  position: absolute;
+  left: 0;
+  top: 15px;
+  width: 55px;
+  height: 100px;
+  margin-left: -15px;
+  z-index: 3;
+}
+
+#s4 .birthday-bunting {
+  width: min(94%, 560px);
+  margin: 5px auto 15px;
+}
+
+#s4 > button {
+  display: block;
+  margin: 15px auto;
+}
+
 </style>
 </head>
 <body>
@@ -1291,31 +1320,35 @@ input[type=file]{max-width:100%;margin:12px}
 </div>
 </section>
 
+
 <section class="screen" id="s4">
 
   <div class="birthday-message">
-  <h1>
-  <span>Today</span>
-  <span>it's</span>
-  <span>your</span>
-  <span>very</span>
-  <span>special</span>
-  <span>day</span>
-  <span>because...</span>
-</h1>
+    <h1>
+      <span>Today</span>
+      <span>it's</span>
+      <span>your</span>
+      <span>very</span>
+      <span>special</span>
+      <span>day</span>
+      <span>because...</span>
+    </h1>
   </div>
 
   <div class="birthday-decor">
-<div class="peek-teddy">
-  <span>🐻</span>
-</div>
 
-  <div class="birthday-bunting">
-    <div class="flag"></div>
-<div class="flag"></div>
-<div class="flag"></div>
-<div class="flag"></div>
-<div class="flag"></div>
+    <div class="peek-teddy">
+      <span>🐻</span>
+    </div>
+
+    <div class="birthday-bunting">
+      <div class="flag"></div>
+      <div class="flag"></div>
+      <div class="flag"></div>
+      <div class="flag"></div>
+      <div class="flag"></div>
+    </div>
+
   </div>
 
   <button onclick="go(5)">Let's celebrate →</button>
