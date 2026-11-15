@@ -1078,6 +1078,30 @@ input[type=file]{max-width:100%;margin:12px}
   font-size: 110px;
   margin: 35px auto 20px;
 }
+ /* Same beige checked background as cake page */
+#s6 {
+  background-color: #f8f1e2;
+  background-image:
+    linear-gradient(90deg, rgba(190,160,120,.13) 50%, transparent 50%),
+    linear-gradient(rgba(190,160,120,.13) 50%, transparent 50%);
+  background-size: 42px 42px;
+  display: none;
+}
+
+/* Same lavender torn-paper panel */
+#s6 .hat-page {
+  width: min(94%, 460px);
+  min-height: 590px;
+  padding: 30px 20px;
+  margin: auto;
+  background: #e5daf4;
+  position: relative;
+  text-align: center;
+  clip-path: polygon(
+    3% 1%, 97% 0%, 99% 4%, 98% 96%,
+    95% 99%, 5% 100%, 1% 96%, 2% 5%
+  );
+}
 </style>
 </head>
 <body>
