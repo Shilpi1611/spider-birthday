@@ -2972,6 +2972,7 @@ function go(n){
    s.classList.remove("active");
    s.style.display = "none";
  });
+
  if(n===2){
    const memories=document.getElementById("s2");
    const birthday=document.getElementById("s4");
@@ -2980,18 +2981,32 @@ function go(n){
    memories.style.display="flex";
    birthday.style.display="flex";
  }
+
  const target = (n===2) ? null : document.getElementById("s"+n);
+
  if(target){
    target.classList.add("active");
    target.style.display="flex";
  }
+
+ if(n===4){
+   const words = document.querySelectorAll("#s4 .sentence-part span");
+
+   words.forEach(word=>{
+     word.style.animation = "none";
+     word.style.opacity = "0";
+   });
+
+   void document.getElementById("s4").offsetWidth;
+
+   words.forEach(word=>{
+     word.style.animation = "";
+   });
+ }
+
  document.body.style.overflowY = "auto";
  document.documentElement.style.overflowY = "auto";
  window.scrollTo({top:0, behavior:"instant"});
-}
-function press(n){
- if(pin.length<4)pin+=n;
- document.getElementById("pin").textContent="•".repeat(pin.length)+"_".repeat(4-pin.length);
 }
 function clearPin(){pin="";document.getElementById("pin").textContent="____";}
 function checkPin(){
