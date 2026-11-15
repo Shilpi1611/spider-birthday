@@ -1238,6 +1238,116 @@ input[type=file]{max-width:100%;margin:12px}
   margin: 15px auto;
 }
 
+/* FINAL FIX - BUNTING AND TEDDY */
+
+#s4 .birthday-decor {
+  width: 100%;
+  height: 155px;
+  display: block;
+  position: relative;
+  padding: 0;
+  overflow: visible;
+}
+
+/* Teddy peeking from left */
+#s4 .peek-teddy {
+  position: absolute;
+  left: -18px;
+  top: 30px;
+  width: 95px;
+  height: 110px;
+  margin: 0;
+  overflow: hidden;
+  display: block;
+  z-index: 3;
+}
+
+#s4 .peek-teddy span {
+  display: block;
+  font-size: 95px;
+  transform: translateX(25px) rotate(8deg);
+  line-height: 1;
+}
+
+/* Rope placement */
+#s4 .birthday-bunting {
+  width: calc(100% - 65px);
+  height: 125px;
+  margin: 0 0 0 65px;
+  padding: 0;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0;
+}
+
+/* Curved hanging rope */
+#s4 .birthday-bunting::before {
+  content: "";
+  position: absolute;
+  left: 1%;
+  top: 0;
+  width: 98%;
+  height: 90px;
+  border-bottom: 2px solid #9b7184;
+  border-radius: 0 0 50% 50% / 0 0 100% 100%;
+  z-index: 1;
+}
+
+/* Triangular flags */
+#s4 .birthday-bunting .flag {
+  position: relative;
+  z-index: 2;
+  flex: 0 0 18%;
+  height: 72px;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  margin: 0;
+  padding: 0;
+}
+
+#s4 .birthday-bunting .flag:nth-child(1) {
+  margin-top: 0;
+}
+
+#s4 .birthday-bunting .flag:nth-child(2) {
+  margin-top: 18px;
+}
+
+#s4 .birthday-bunting .flag:nth-child(3) {
+  margin-top: 28px;
+}
+
+#s4 .birthday-bunting .flag:nth-child(4) {
+  margin-top: 18px;
+}
+
+#s4 .birthday-bunting .flag:nth-child(5) {
+  margin-top: 0;
+}
+
+@media(max-width:600px) {
+  #s4 .birthday-decor {
+    height: 145px;
+  }
+
+  #s4 .peek-teddy {
+    left: -18px;
+    top: 30px;
+    width: 85px;
+    height: 105px;
+  }
+
+  #s4 .birthday-bunting {
+    width: calc(100% - 55px);
+    margin-left: 55px;
+  }
+
+  #s4 .birthday-bunting .flag {
+    height: 65px;
+  }
+}
+
 </style>
 </head>
 <body>
