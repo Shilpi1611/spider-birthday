@@ -5,33 +5,56 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy Birthday Spider 💗</title>
 <style>
- .music-row {
+ 
+.music-row {
+  width: 100%;
+  max-width: 340px;
+  margin: 25px auto;
+  padding: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 15px;
-  margin: 25px auto;
+  gap: 13px;
+  border-radius: 20px;
+  background: linear-gradient(
+    120deg,
+    #d8edff,
+    #eaf5ff,
+    #cce6ff,
+    #e8f3ff
+  );
+  background-size: 300% 300%;
+  animation: blueFlow 7s ease infinite;
+  box-shadow: 0 4px 15px #829fc455;
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes blueFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .cassette-circle {
-  width: 125px;
-  height: 125px;
-  min-width: 125px;
+  width: 112px;
+  height: 112px;
+  min-width: 112px;
   border-radius: 50%;
-  background: #e9c4b7;
-  border: 5px solid #fff0d9;
-  box-shadow: 0 4px 12px #8274a555;
+  background: #24242b;
+  border: 5px solid #454550;
+  box-shadow: 0 4px 12px #51466c55;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
 }
 
 .cassette-inner {
-  width: 85px;
-  height: 85px;
-  border: 3px dashed #a77e79;
+  width: 78px;
+  height: 78px;
+  border: 4px solid #e9e9ef;
   border-radius: 50%;
+  background: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -41,21 +64,31 @@
   width: 43px;
   height: 43px;
   border-radius: 50%;
-  background: #fff5df;
-  color: #886c79;
-  border: 2px solid #c9a5a0;
+  background: #c7a5f2;
+  color: white;
+  border: 2px solid #b18de5;
   font-size: 19px;
   padding: 0;
   margin: 0;
+  display: grid;
+  place-items: center;
+}
+
+.cassette-play:hover {
+  background: #a985dc;
 }
 
 .music-caption {
-  font-family: cursive;
-  font-size: 19px;
-  color: #78649a;
-  max-width: 115px;
+  font-family: "Brush Script MT", "Segoe Script", cursive;
+  font-size: 23px;
+  line-height: 1.3;
+  color: #67528e;
+  max-width: 155px;
+  text-align: left;
+  font-weight: normal;
 }
- .scrapbook-strip {
+
+  .scrapbook-strip {
   width: 100%;
   max-width: 230px;
   margin: 18px auto;
@@ -234,7 +267,7 @@ input[type=file]{max-width:100%;margin:12px}
     </div>
 
     <div class="music-caption">
-      LET'S PLAY SONG
+      Let's play this song !!
     </div>
 
   </div>
