@@ -1296,7 +1296,219 @@ input[type=file]{max-width:100%;margin:12px}
   #s4 .peek-teddy span {
     font-size: 48px;
   }
-} 
+}
+ 
+/* SCREEN 4 - FINAL FULL DESIGN */
+
+#s4 {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #f3e5c5;
+  padding: 28px 18px;
+  gap: 24px;
+}
+
+/* Lock-screen style rounded box */
+#s4::before {
+  content: "";
+  position: absolute;
+  inset: 14px;
+  border-radius: 30px;
+  background: #fff9ed;
+  border: 3px solid #fff;
+  box-shadow: 0 8px 25px #8274a533;
+  z-index: -1;
+}
+
+/* Birthday message stays unchanged */
+#s4 .birthday-message {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  max-width: 550px;
+}
+
+/* Decoration fills the available screen width */
+#s4 .birthday-decor {
+  position: relative;
+  width: 100%;
+  height: 270px;
+  min-height: 270px;
+  padding: 0;
+  display: block;
+  z-index: 2;
+}
+
+/* Full-width deep U-shaped rope */
+#s4 .birthday-bunting {
+  position: absolute;
+  top: 35px;
+  left: 0;
+  width: 100%;
+  max-width: none;
+  height: 180px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+#s4 .birthday-bunting::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 1%;
+  width: 98%;
+  height: 145px;
+  border: 0;
+  border-bottom: 3px solid #98627f;
+  border-radius: 0 0 50% 50% / 0 0 100% 100%;
+  z-index: 0;
+}
+
+#s4 .birthday-bunting .flag {
+  position: relative;
+  z-index: 1;
+  flex: 0 0 17%;
+  height: 78px;
+  margin: 0;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
+
+#s4 .birthday-bunting .flag:nth-child(1) {
+  background-color: #a77ac1;
+  background-image: radial-gradient(#f5b4cf 2px, transparent 2.5px);
+  background-size: 13px 13px;
+}
+
+#s4 .birthday-bunting .flag:nth-child(2) {
+  margin-top: 20px;
+  background: #f6c5d5;
+}
+
+#s4 .birthday-bunting .flag:nth-child(3) {
+  margin-top: 38px;
+  background: repeating-linear-gradient(
+    135deg, #ed91b4 0 8px, #f8c4d6 8px 16px
+  );
+}
+
+#s4 .birthday-bunting .flag:nth-child(4) {
+  margin-top: 20px;
+  background: #a77ac1;
+}
+
+#s4 .birthday-bunting .flag:nth-child(5) {
+  background: repeating-linear-gradient(
+    0deg, #ed91b4 0 8px, #f8c4d6 8px 16px
+  );
+}
+
+/* Balloons across the entire screen */
+#s4 .birthday-balloons {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+#s4 .birthday-balloons .balloon {
+  position: absolute;
+  display: block;
+  font-size: clamp(30px, 7vw, 48px);
+  animation: balloonPop 1.2s ease-out both,
+             balloonFloat 3s ease-in-out infinite alternate;
+}
+
+/* Spread balloons around all sides */
+#s4 .birthday-balloons .b1 {
+  left: 3%;
+  top: 8%;
+  animation-delay: 0s, 1.2s;
+}
+
+#s4 .birthday-balloons .b2 {
+  right: 4%;
+  top: 12%;
+  animation-delay: .2s, 1.4s;
+}
+
+#s4 .birthday-balloons .b3 {
+  left: 2%;
+  top: 42%;
+  animation-delay: .4s, 1.6s;
+}
+
+#s4 .birthday-balloons .b4 {
+  right: 2%;
+  top: 48%;
+  animation-delay: .6s, 1.8s;
+}
+
+#s4 .birthday-balloons .b5 {
+  left: 8%;
+  bottom: 8%;
+  animation-delay: .8s, 2s;
+}
+
+#s4 .birthday-balloons .b6 {
+  right: 8%;
+  bottom: 8%;
+  animation-delay: 1s, 2.2s;
+}
+
+@keyframes balloonPop {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1.25);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes balloonFloat {
+  from { translate: 0 0; }
+  to { translate: 0 -12px; }
+}
+
+/* Keep message and button above decorations */
+#s4 .birthday-message,
+#s4 > button {
+  position: relative;
+  z-index: 3;
+}
+
+@media (max-width: 600px) {
+  #s4 {
+    padding: 25px 18px;
+    gap: 22px;
+  }
+
+  #s4 .birthday-decor {
+    height: 245px;
+    min-height: 245px;
+  }
+
+  #s4 .birthday-bunting .flag {
+    flex-basis: 17%;
+    height: 65px;
+  }
+
+  #s4 .birthday-bunting::before {
+    height: 125px;
+  }
+}
+
 </style>
 </head>
 <body>
