@@ -2598,7 +2598,34 @@ body { overflow:hidden !important; }
   #s4 .birthday-bunting .flag:nth-child(3) { margin-top:78px !important; }
   #s4 > button { margin-right:2% !important; margin-bottom:18px !important; }
 }
+ #s4 .sentence-part {
+  display: block;
+  opacity: 0;
+  animation: sentencePop 0.7s ease forwards;
+}
 
+#s4 .part-one {
+  animation-delay: 0.3s;
+}
+
+#s4 .part-two {
+  animation-delay: 1.2s;
+}
+
+@keyframes sentencePop {
+  0% {
+    opacity: 0;
+    transform: scale(0.75) translateY(15px);
+  }
+  75% {
+    opacity: 1;
+    transform: scale(1.08) translateY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 </style>
 </head>
 <body>
@@ -2654,18 +2681,10 @@ body { overflow:hidden !important; }
 
 
 <section class="screen" id="s4">
-
-<div class="birthday-message">
-    <h1>
-      <span>Today</span>
-      <span>it's</span>
-      <span>your</span>
-      <span>very</span>
-      <span>special</span>
-      <span>day</span>
-      <span>because...</span>
-    </h1>
-  </div>
+<div class="special-day-text">
+  <div class="sentence-part part-one">Today it's your</div>
+  <div class="sentence-part part-two">very special day</div>
+</div>
 
 <div class="music-row">
 
