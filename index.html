@@ -2966,7 +2966,13 @@ Your favourite person 💕</div>
 document.getElementById("player1").addEventListener("ended", () => {
   document.getElementById("musicPlay").textContent = "▶";
 });
-let pin="";
+let pin = "";
+
+function press(n){
+  if(pin.length < 4) pin += n;
+  document.getElementById("pin").textContent =
+    "•".repeat(pin.length) + "_".repeat(4-pin.length);
+}
 function go(n){
  document.querySelectorAll(".screen").forEach(s=>{
    s.classList.remove("active");
