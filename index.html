@@ -830,6 +830,99 @@ input[type=file]{max-width:100%;margin:12px}
   font-size: 15px;
   letter-spacing: 2px;
 }
+ /* 1. Words continuously pop */
+#s5 .birthday-heading span {
+  display: inline-block;
+  opacity: 1;
+  animation: wordPopLoop 1.4s ease-in-out infinite alternate;
+}
+#s5 .birthday-heading span:nth-child(1) { animation-delay: 0s; }
+#s5 .birthday-heading span:nth-child(2) { animation-delay: .25s; }
+#s5 .birthday-heading span:nth-child(3) { animation-delay: .5s; }
+
+@keyframes wordPopLoop {
+  from { transform: scale(.94) translateY(3px); }
+  to { transform: scale(1.08) translateY(-5px); }
+}
+
+/* 2. Cake ko round shape */
+#s5 .cake-body {
+  width: 260px;
+  height: 190px;
+  margin: 0 auto;
+  border-radius: 50%;
+  border-top: 17px solid #fff0dc;
+  border-bottom: 17px solid #fff0dc;
+  overflow: visible;
+  position: relative;
+}
+
+/* 3. Top cream line with round cherries */
+#s5 .cake-icing {
+  height: 22px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, #d94f68 0 5px, transparent 5.5px),
+    #fff0dc;
+  background-size: 28px 22px, auto;
+}
+
+/* 4. Bottom cream line with cherries */
+#s5 .cake-body::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -17px;
+  width: 100%;
+  height: 18px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, #d94f68 0 5px, transparent 5.5px),
+    #fff0dc;
+  background-size: 28px 18px, auto;
+}
+
+/* 5. HAPPY BIRTHDAY bigger + dots across cake */
+#s5 .cake-writing {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-size: clamp(23px, 6vw, 29px);
+  font-weight: 900;
+  line-height: 1.15;
+}
+
+#s5 .cake-dots {
+  width: 100%;
+  color: white;
+  font-size: 18px;
+  letter-spacing: 5px;
+  white-space: nowrap;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* 6. Teddy bear bottom corner */
+#s5 .corner-teddy {
+  display: block !important;
+  position: absolute;
+  left: 15px;
+  bottom: 15px;
+  z-index: 10;
+  font-size: 42px;
+  animation: teddyTilt 1.5s ease-in-out infinite alternate;
+}
+
+/* 7. Decorative border on lavender panel */
+#s5 .birthday-cake-card {
+  position: relative;
+  border: 3px solid #b9a5d8;
+  outline: 2px dashed #8f78b8;
+  outline-offset: -10px;
+  box-shadow: 0 0 0 5px rgba(180, 157, 213, .18);
+}
 </style>
 </head>
 <body>
