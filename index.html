@@ -5,6 +5,38 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy Birthday Spider 💗</title>
 <style>
+ #s4 .sentence-part {
+  display: block;
+  opacity: 0;
+  animation: sentencePop 0.7s ease forwards;
+}
+
+#s4 .part-one {
+  animation-delay: 0.3s;
+}
+
+#s4 .part-two {
+  animation-delay: 1.2s;
+}
+
+#s4 .part-three {
+  animation-delay: 2.1s;
+}
+
+@keyframes sentencePop {
+  0% {
+    opacity: 0;
+    transform: scale(0.75) translateY(15px);
+  }
+  75% {
+    opacity: 1;
+    transform: scale(1.08) translateY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
  /* FINAL YELLOW BIRTHDAY PAGE LAYOUT */
 #s4 {
   min-height: 100vh !important;
@@ -2636,14 +2668,6 @@ body { overflow:hidden !important; }
   color: #79558d !important;
   line-height: 1.4 !important;
 }
-
-#s4 .sentence-part {
-  display: block !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-  transform: none !important;
-  animation: none !important;
-}
 </style>
 </head>
 <body>
@@ -2721,13 +2745,15 @@ body { overflow:hidden !important; }
   </div>
 
   <audio id="player1" src="alanajordan-retro-motown-instrumental-01-421331.mp3"></audio>
-
-  
-
-
-
+ 
+<div class="special-day-text">
+  <div class="sentence-part part-one">Today it's your</div>
+  <div class="sentence-part part-two">very special day</div>
+  <div class="sentence-part part-three">because...</div>
+</div>
+ 
   <div class="birthday-decor">
-
+   
     <div class="birthday-balloons">
   <span class="balloon b1">🎈</span>
   <span class="balloon b2">🎈</span>
