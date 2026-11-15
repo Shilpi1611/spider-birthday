@@ -2346,6 +2346,119 @@ input[type=file]{max-width:100%;margin:12px}
   #s4 > button { margin-right: 4% !important; margin-left: 0 !important; }
 }
 
+
+
+/* ===== FINAL PRECISE LAYOUT FIX ===== */
+html, body { width:100%; min-height:100%; }
+body { overflow:hidden !important; }
+#s1.active {
+  display:flex !important; height:100vh !important; min-height:100vh !important;
+  max-height:100vh !important; overflow:hidden !important; box-sizing:border-box !important;
+}
+.screen:not(.active) { display:none !important; }
+
+/* Memory screen itself is preserved; its Continue button has been removed. */
+#s2.active { display:flex !important; }
+
+/* Birthday page: message first, then a larger, neat blue music panel. */
+#s4 {
+  min-height:100vh !important; height:auto !important; overflow:visible !important;
+  box-sizing:border-box !important; display:flex !important; flex-direction:column !important;
+  align-items:center !important; gap:0 !important; padding:34px 16px 18px !important;
+}
+#s4 .birthday-message {
+  width:100% !important; max-width:620px !important; margin:22px auto 42px !important;
+  padding:0 10px !important; box-sizing:border-box !important;
+}
+#s4 .birthday-message h1 {
+  display:flex !important; flex-wrap:wrap !important; justify-content:center !important;
+  align-items:center !important; column-gap:8px !important; row-gap:2px !important;
+  width:100% !important; max-width:590px !important; margin:0 auto !important; padding:0 !important;
+  font-family:"Brush Script MT","Segoe Script",cursive !important;
+  font-size:clamp(34px,8.3vw,49px) !important; line-height:1.25 !important;
+  font-weight:600 !important; text-align:center !important; color:#70558d !important;
+}
+#s4 .birthday-message h1 span {
+  display:inline-block !important; white-space:nowrap !important; opacity:0 !important;
+  animation:wordPopup .55s cubic-bezier(.2,.8,.25,1.2) forwards !important;
+}
+#s4 .birthday-message h1 span:nth-child(1) { animation-delay:.15s !important; }
+#s4 .birthday-message h1 span:nth-child(2) { animation-delay:.45s !important; }
+#s4 .birthday-message h1 span:nth-child(3) { animation-delay:.75s !important; }
+#s4 .birthday-message h1 span:nth-child(4) { animation-delay:1.05s !important; }
+#s4 .birthday-message h1 span:nth-child(5) { animation-delay:1.35s !important; }
+#s4 .birthday-message h1 span:nth-child(6) { animation-delay:1.65s !important; }
+#s4 .birthday-message h1 span:nth-child(7) { animation-delay:1.95s !important; }
+
+#s4 .music-row {
+  width:min(94%,570px) !important; max-width:570px !important; min-height:205px !important;
+  margin:0 auto 34px !important; padding:24px 28px !important; gap:24px !important;
+  border-radius:28px !important; box-sizing:border-box !important; flex-shrink:0 !important;
+}
+#s4 .cassette-circle {
+  width:clamp(142px,37vw,172px) !important; height:clamp(142px,37vw,172px) !important;
+  min-width:clamp(142px,37vw,172px) !important; border-width:7px !important;
+}
+#s4 .cassette-inner { width:72% !important; height:72% !important; }
+#s4 .cassette-play { width:60px !important; height:60px !important; font-size:26px !important; }
+#s4 .music-caption {
+  max-width:190px !important; font-size:clamp(25px,5.4vw,34px) !important; line-height:1.3 !important;
+}
+
+/* Hamster image is deliberately untouched. */
+
+/* One clear U-shaped rope, with each flag top touching the rope. */
+#s4 .birthday-bunting {
+  position:relative !important; width:min(94%,570px) !important; height:178px !important;
+  margin:4px auto 8px !important; padding:0 !important; display:flex !important;
+  justify-content:space-between !important; align-items:flex-start !important; overflow:visible !important;
+}
+#s4 .birthday-bunting::before {
+  content:"" !important; position:absolute !important; left:1% !important; top:0 !important;
+  width:98% !important; height:92px !important; border:0 !important;
+  border-bottom:3px solid #98627f !important;
+  border-radius:0 0 50% 50% / 0 0 100% 100% !important;
+  z-index:2 !important; pointer-events:none !important;
+}
+#s4 .birthday-bunting .flag {
+  position:relative !important; z-index:3 !important; flex:0 0 17% !important;
+  height:66px !important; margin:0 !important;
+}
+#s4 .birthday-bunting .flag:nth-child(1),
+#s4 .birthday-bunting .flag:nth-child(5) { margin-top:0 !important; }
+#s4 .birthday-bunting .flag:nth-child(2),
+#s4 .birthday-bunting .flag:nth-child(4) { margin-top:44px !important; }
+#s4 .birthday-bunting .flag:nth-child(3) { margin-top:88px !important; }
+
+/* Existing Let's celebrate button: very bottom-right of the birthday page. */
+#s4 > button {
+  align-self:flex-end !important; margin:auto 2% 22px 0 !important;
+  position:relative !important; z-index:15 !important;
+}
+@media (max-width:600px) {
+  #s4 { padding:28px 12px 16px !important; }
+  #s4 .birthday-message { margin:16px auto 34px !important; }
+  #s4 .birthday-message h1 {
+    font-size:clamp(32px,8.4vw,43px) !important; column-gap:6px !important; line-height:1.28 !important;
+  }
+  #s4 .music-row {
+    width:95% !important; min-height:178px !important; padding:18px 14px !important;
+    gap:14px !important; margin-bottom:28px !important;
+  }
+  #s4 .cassette-circle {
+    width:132px !important; height:132px !important; min-width:132px !important;
+  }
+  #s4 .cassette-play { width:54px !important; height:54px !important; }
+  #s4 .music-caption { font-size:24px !important; }
+  #s4 .birthday-bunting { width:96% !important; height:160px !important; }
+  #s4 .birthday-bunting::before { height:82px !important; }
+  #s4 .birthday-bunting .flag { height:58px !important; }
+  #s4 .birthday-bunting .flag:nth-child(2),
+  #s4 .birthday-bunting .flag:nth-child(4) { margin-top:39px !important; }
+  #s4 .birthday-bunting .flag:nth-child(3) { margin-top:78px !important; }
+  #s4 > button { margin-right:2% !important; margin-bottom:18px !important; }
+}
+
 </style>
 </head>
 <body>
@@ -2393,7 +2506,7 @@ input[type=file]{max-width:100%;margin:12px}
 </div>
 
 <div class="photo-grid" id="photoGrid"></div>
-<button onclick="document.getElementById('s4').scrollIntoView({behavior:'smooth'})">Continue →</button>
+
 </div>
 </section>
 
@@ -2402,7 +2515,19 @@ input[type=file]{max-width:100%;margin:12px}
 
 <section class="screen" id="s4">
 
-  <div class="music-row">
+<div class="birthday-message">
+    <h1>
+      <span>Today</span>
+      <span>it's</span>
+      <span>your</span>
+      <span>very</span>
+      <span>special</span>
+      <span>day</span>
+      <span>because...</span>
+    </h1>
+  </div>
+
+<div class="music-row">
 
     <div class="cassette-circle">
       <div class="cassette-inner">
@@ -2420,17 +2545,9 @@ input[type=file]{max-width:100%;margin:12px}
 
   <audio id="player1" src="alanajordan-retro-motown-instrumental-01-421331.mp3"></audio>
 
-<div class="birthday-message">
-    <h1>
-      <span>Today</span>
-      <span>it's</span>
-      <span>your</span>
-      <span>very</span>
-      <span>special</span>
-      <span>day</span>
-      <span>because...</span>
-    </h1>
-  </div>
+  
+
+
 
   <div class="birthday-decor">
 
@@ -2622,13 +2739,14 @@ function go(n){
    birthday.classList.add("active");
    memories.style.display="flex";
    birthday.style.display="flex";
- } else {
-   const target=document.getElementById("s"+n);
-   if(target){
-     target.classList.add("active");
-     target.style.display="flex";
-   }
  }
+ const target = (n===2) ? null : document.getElementById("s"+n);
+ if(target){
+   target.classList.add("active");
+   target.style.display="flex";
+ }
+ document.body.style.overflowY = "auto";
+ document.documentElement.style.overflowY = "auto";
  window.scrollTo({top:0, behavior:"instant"});
 }
 function press(n){
