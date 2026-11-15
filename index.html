@@ -124,17 +124,17 @@
 }
 
 #s4 .birthday-bunting::before {
-  content: "" !important;
-  position: absolute !important;
-  top: 0 !important;
-  left: 1% !important;
-  width: 98% !important;
-  height: 105px !important;
-  border: 0 !important;
-  border-bottom: 3px solid #98627f !important;
-  border-radius: 0 0 50% 50% / 0 0 100% 100% !important;
-  z-index: 2 !important;
-  pointer-events: none !important;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 1%;
+  width: 98%;
+  height: 150px;
+  border: 0;
+  border-bottom: 3px solid #98627f;
+  border-radius: 0 0 50% 50% / 0 0 100% 100%;
+  z-index: 2;
+  pointer-events: none;
 }
 #s4 .birthday-bunting .flag {
   position: relative !important;
@@ -144,16 +144,25 @@
   margin: 0 !important;
 }
 
-#s4 .birthday-bunting .flag:nth-child(2),
-#s4 .birthday-bunting .flag:nth-child(4) {
-  margin-top: 42px !important;
+#s4 .birthday-bunting .flag:nth-child(1) {
+  margin-top: 0 !important;
+}
+
+#s4 .birthday-bunting .flag:nth-child(2) {
+  margin-top: 25px !important;
 }
 
 #s4 .birthday-bunting .flag:nth-child(3) {
-  margin-top: 82px !important;
+  margin-top: 48px !important;
 }
 
-/* Let's Start at bottom-right */
+#s4 .birthday-bunting .flag:nth-child(4) {
+  margin-top: 25px !important;
+}
+
+#s4 .birthday-bunting .flag:nth-child(5) {
+  margin-top: 0 !important;
+}/* Let's Start at bottom-right */
 #s4 > button {
   order: 5 !important;
   align-self: flex-end !important;
