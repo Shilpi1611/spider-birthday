@@ -2831,7 +2831,7 @@ function go(n) {
   if (target) {
     target.classList.add("active");
     target.style.display = "flex";
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
   }
 
   document.body.style.overflowY = "auto";
