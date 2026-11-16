@@ -2753,6 +2753,48 @@ left: 18px;
   font-size: 20px;
   padding: 14px 30px;
 }
+  /* Tilt corner decorations */
+#s6 .cake-star {
+  display: inline-block;
+  transform: rotate(-25deg);
+  animation: starTilt 2s ease-in-out infinite alternate;
+}
+
+#s6 .cake-strawberry {
+  display: inline-block;
+  transform: rotate(20deg);
+  animation: ribbonTilt 2s ease-in-out infinite alternate;
+}
+
+@keyframes starTilt {
+  from { transform: rotate(-25deg); }
+  to { transform: rotate(15deg); }
+}
+
+@keyframes ribbonTilt {
+  from { transform: rotate(20deg); }
+  to { transform: rotate(-15deg); }
+}
+
+/* Cute YES button */
+#s6 button {
+  margin: 45px auto 0 !important;
+  min-width: 165px;
+  padding: 15px 35px !important;
+  border: 2px solid #b9a5d8 !important;
+  border-radius: 28px 20px 26px 18px !important;
+  background: #E9E1F5 !important;
+  color: #765a9c !important;
+  font-size: 21px !important;
+  font-weight: bold;
+  box-shadow: 0 6px 0 #b9a5d8, 0 9px 15px #aa8b6633;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+#s6 button:active {
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 #b9a5d8;
+}
 </style>
 </head>
 <body>
