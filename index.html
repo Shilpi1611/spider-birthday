@@ -3370,7 +3370,16 @@ function blow() {
 function reveal(){
  document.getElementById("giftText").textContent="Surprise! You deserve all the happiness in the world! 💖";
 }
-  const scrapbookGrid = document.getElementById("scrapbookGrid");
+ const scrapbookGrid = document.getElementById("scrapbookGrid");
+
+const scrapbookCaptions = [
+  "Those abs should come with a warning… too distracting! ❤️‍🔥",
+  "Just like a birthday boy, stealing all the attention in his birthday hat! 🥹🎈",
+  "Not together in that moment, but together in my favourite little world. Someday, the real picture. 🫶",
+  "Ethnic looks, effortless charm… how do you look this handsome? ❤️",
+  "Even from behind, you’re my favourite view. ❤️",
+  "You and your bike… both look pretty good together. 😌"
+];
 
 if (scrapbookGrid) {
   for (let i = 1; i <= 6; i++) {
@@ -3381,6 +3390,16 @@ if (scrapbookGrid) {
     image.src = `photos/photo${i}.jpeg`;
     image.alt = `Scrapbook photo ${i}`;
 
+    frame.appendChild(image);
+
+    const caption = document.createElement("p");
+    caption.className = "photo-caption";
+    caption.textContent = scrapbookCaptions[i - 1];
+
+    frame.appendChild(caption);
+    scrapbookGrid.appendChild(frame);
+  }
+}
     frame.appendChild(image);
 
     const caption = document.createElement("input");
