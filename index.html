@@ -3059,6 +3059,44 @@ left: 18px;
   font-family: "Segoe Print", "Bradley Hand", cursive;
   color: #9b315e;
 }
+  #s9 .music-section {
+  background: #f4eaff;
+  border: 2px solid #c9a9ed;
+  border-radius: 24px;
+  padding: 25px 18px;
+}
+
+#s9 .music-section h1 {
+  color: #713d91;
+}
+
+#s9 .song-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 25px 0;
+}
+
+#s9 .song-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 15px;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 12px #8060a533;
+  color: #38204d;
+}
+
+#s9 .song-card button {
+  background: #a77bd1;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 18px;
+  cursor: pointer;
+}
 </style>
 </head>
 <body>
@@ -3284,13 +3322,34 @@ left: 18px;
   </div>
 </section>
 <section class="screen" id="s9">
-<div class="card">
-<h1>Our Photo Gallery 🌷</h1>
-<p>All the lovely memories in one place.</p>
-<div class="photo-grid" id="finalGrid"></div>
-<p>Happy Birthday once again! 💗</p>
-<button onclick="go(1)">Replay ↻</button>
-</div>
+  <div class="card music-section">
+    <h1>The Song That Reminds You 🎶</h1>
+    <p>Some songs just feel like you. ❤️</p>
+
+    <div class="song-list">
+      <div class="song-card">
+        <span>🎵 Song One</span>
+        <button onclick="playSong('song1')">▶️ Play</button>
+      </div>
+
+      <div class="song-card">
+        <span>🎶 Song Two</span>
+        <button onclick="playSong('song2')">▶️ Play</button>
+      </div>
+
+      <div class="song-card">
+        <span>💗 Song Three</span>
+        <button onclick="playSong('song3')">▶️ Play</button>
+      </div>
+    </div>
+
+    <audio id="song1" src="songs/song1.mp3"></audio>
+    <audio id="song2" src="songs/song2.mp3"></audio>
+    <audio id="song3" src="songs/song3.mp3"></audio>
+
+    <p>Every song has a little piece of you. 🥹</p>
+    <button onclick="go(1)">Replay ↻</button>
+  </div>
 </section>
 
 <script>
@@ -3461,6 +3520,22 @@ if (scrapbookGrid) {
 
     frame.appendChild(caption);
     scrapbookGrid.appendChild(frame);
+  }
+}
+  function playSong(id) {
+  document.querySelectorAll("#s9 audio").forEach(audio => {
+    if (audio.id !== id) {
+      audio.pause();
+      audio.currentTime = 0;
+    }
+  });
+
+  const song = document.getElementById(id);
+
+  if (song.paused) {
+    song.play();
+  } else {
+    song.pause();
   }
 }
   </script>
