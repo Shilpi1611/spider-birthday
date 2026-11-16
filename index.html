@@ -3228,6 +3228,31 @@ function blow() {
 function reveal(){
  document.getElementById("giftText").textContent="Surprise! You deserve all the happiness in the world! 💖";
 }
+  const scrapbookUpload = document.getElementById("scrapbookUpload");
+
+if (scrapbookUpload) {
+  scrapbookUpload.addEventListener("change", function(event) {
+    const grid = document.getElementById("scrapbookGrid");
+
+    Array.from(event.target.files).forEach(file => {
+      if (!file.type.startsWith("image/")) return;
+
+      const photoURL = URL.createObjectURL(file);
+
+      const frame = document.createElement("div");
+      frame.className = "polaroid";
+
+      const image = document.createElement("img");
+      image.src = photoURL;
+      image.alt = "Scrapbook photo";
+
+      frame.appendChild(image);
+      grid.appendChild(frame);
+    });
+
+    event.target.value = "";
+  });
+}
 </script>
 </body>
 </html>
