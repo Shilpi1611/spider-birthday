@@ -2762,23 +2762,32 @@ document.getElementById("player1").addEventListener("ended", () => {
 let pin = "";
 
 function press(n) {
-  if (pin.length < 4) {
-    pin += String(n);
-  }
+  if (pin.length >= 4) return;
 
-  document.getElementById("pin").textContent =
-    "●".repeat(pin.length) + "_".repeat(4 - pin.length);
+  pin += String(n);
+
+  const display = document.getElementById("pin");
+  if (display) {
+    display.textContent = "●".repeat(pin.length) + "_".repeat(4 - pin.length);
+  }
 }
 
 function clearPin() {
   pin = "";
-  document.getElementById("pin").textContent = "__";
+  const display = document.getElementById("pin");
+  if (display) display.textContent = "__";
 }
 
 function checkPin() {
-  if (pin === "1611") {
-    pin = "";
-    go(2);
+  if (pin !== "1611") {
+    alert("Oops! Try again 💗");
+    clearPin();
+    return;
+  }
+
+  pin = "";
+  go(2);
+}  
   } else {
     alert("Oops! Try again 💗");
     clearPin();
