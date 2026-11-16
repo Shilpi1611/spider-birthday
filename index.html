@@ -2635,6 +2635,24 @@ left: 18px;
   z-index: 1 !important;
   margin-top: 0 !important;
 }
+  /* Red party confetti */
+.red-confetti {
+  position: fixed;
+  top: -20px;
+  width: 7px;
+  height: 12px;
+  background: #e32636;
+  z-index: 99999;
+  pointer-events: none;
+  animation: confettiFall 3s linear forwards;
+}
+
+@keyframes confettiFall {
+  to {
+    transform: translateY(110vh) rotate(900deg);
+    opacity: 0;
+  }
+}
 </style>
 </head>
 <body>
