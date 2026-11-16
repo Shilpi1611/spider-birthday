@@ -2795,6 +2795,92 @@ left: 18px;
   transform: translateY(4px);
   box-shadow: 0 2px 0 #b9a5d8;
 }
+  /* COLOURFUL SCRAPBOOK */
+#s7 {
+  background: linear-gradient(135deg, #ffe3ec, #fff1b8, #e8ddff, #d9f4ff) !important;
+  padding: 25px 12px;
+}
+
+#s7 .scrapbook-page {
+  width: min(96%, 650px);
+  min-height: 85vh;
+  margin: 20px auto;
+  padding: 28px 18px;
+  background: #fff8e8;
+  border: 5px solid #fff;
+  box-shadow: 0 8px 25px #8d6b9b44;
+  border-radius: 8px;
+  text-align: center;
+  position: relative;
+}
+
+#s7 .scrapbook-title {
+  color: #d94f91;
+  font-family: "Brush Script MT", "Segoe Script", cursive;
+  font-size: clamp(32px, 7vw, 48px);
+  margin: 10px 0;
+}
+
+#s7 .scrapbook-subtitle {
+  color: #8063a8;
+  font-size: 16px;
+  margin-bottom: 25px;
+}
+
+#s7 .upload-photos-btn {
+  display: inline-block;
+  padding: 13px 22px;
+  background: #ffb7cf;
+  color: #713d68;
+  border: 2px dashed #d94f91;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 25px;
+}
+
+#s7 .scrapbook-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px 15px;
+  margin: 10px 0 30px;
+}
+
+#s7 .polaroid {
+  background: white;
+  padding: 9px 9px 14px;
+  box-shadow: 0 5px 12px #60456b33;
+  transform: rotate(-2deg);
+}
+
+#s7 .polaroid:nth-child(even) {
+  transform: rotate(2deg);
+}
+
+#s7 .polaroid img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+#s7 .polaroid input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px dashed #d6a6bd;
+  background: transparent;
+  text-align: center;
+  margin-top: 10px;
+  padding: 7px 2px;
+  color: #76527c;
+  font-family: "Segoe Script", cursive;
+  font-size: 13px;
+  outline: none;
+}
+
+#s7 .scrapbook-page > button {
+  margin-top: 15px;
+}
 </style>
 </head>
 <body>
@@ -2968,14 +3054,25 @@ left: 18px;
 </section>
 
 <section class="screen" id="s7">
-<div class="card">
-<h1>Music Time! 🎧</h1>
-<div class="tape"><span>📼</span><p>Made with love</p></div>
-<p>Choose another favourite song</p>
-<input type="file" id="music2" accept="audio/*">
-<audio id="player2" controls></audio>
-<button onclick="go(8)">Read your letter →</button>
-</div>
+  <div class="scrapbook-page">
+    <h1 class="scrapbook-title">Our Crazy Memories! 🌈</h1>
+    <p class="scrapbook-subtitle">Little moments, big happiness 💖</p>
+
+    <label class="upload-photos-btn" for="scrapbookUpload">
+      📸 Add Our Photos
+    </label>
+    <input
+      type="file"
+      id="scrapbookUpload"
+      accept="image/*"
+      multiple
+      hidden
+    >
+
+    <div id="scrapbookGrid" class="scrapbook-grid"></div>
+
+    <button onclick="go(8)">A Letter for You 💌 →</button>
+  </div>
 </section>
 
 <section class="screen" id="s8">
