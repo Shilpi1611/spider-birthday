@@ -2487,22 +2487,12 @@ html, body {
   padding: 0;
   overflow-x: hidden;
 }
-  /* FIX: Keep every birthday slide on its own screen */
-.screen {
-  position: fixed !important;
-  inset: 0 !important;
-  width: 100% !important;
-  height: 100vh !important;
-  min-height: 100vh !important;
-  overflow-y: auto !important;
-}
-
-.screen:not(.active) {
-  display: none !important;
+  .screen {
+  display: none;
 }
 
 .screen.active {
-  display: flex !important;
+  display: flex;
 }
 </style>
 </head>
@@ -2787,7 +2777,8 @@ function checkPin() {
 }
 
 function go(n) {
-  document.querySelectorAll(".screen").forEach(s => {
+  document.querySelectorAll(".screen").forEach(s => 
+    {
     s.classList.remove("active");
     s.style.display = "none";
   });
