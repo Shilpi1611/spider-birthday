@@ -2657,6 +2657,17 @@ left: 18px;
     opacity: 0.9;
   }
 }
+  /* Gentle cake rocking */
+#s5 #cake {
+  transform-origin: center bottom;
+  animation: cakeRock 2.5s ease-in-out infinite;
+}
+
+@keyframes cakeRock {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-3deg); }
+  75% { transform: rotate(3deg); }
+}
 </style>
 </head>
 <body>
