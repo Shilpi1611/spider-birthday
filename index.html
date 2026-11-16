@@ -2820,8 +2820,7 @@ function checkPin() {
 }
 
 function go(n) {
-  document.querySelectorAll(".screen").forEach(s => 
-    {
+  document.querySelectorAll(".screen").forEach(s => {
     s.classList.remove("active");
     s.style.display = "none";
   });
@@ -2831,12 +2830,16 @@ function go(n) {
   if (target) {
     target.classList.add("active");
     target.style.display = "flex";
-    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+    target.scrollTop = 0;
   }
+
+  document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0;
+  window.scrollTo(0, 0);
 
   document.body.style.overflowY = "auto";
   document.documentElement.style.overflowY = "auto";
-}  
+}
   let savedPhotos=[];
 document.getElementById("photos").addEventListener("change",e=>{
  savedPhotos.forEach(URL.revokeObjectURL);
