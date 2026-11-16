@@ -3247,6 +3247,12 @@ if (scrapbookUpload) {
       image.alt = "Scrapbook photo";
 
       frame.appendChild(image);
+      const caption = document.createElement("input");
+caption.type = "text";
+caption.className = "photo-caption";
+caption.placeholder = "Write something sweet...";
+
+frame.appendChild(caption);
       grid.appendChild(frame);
     });
 
