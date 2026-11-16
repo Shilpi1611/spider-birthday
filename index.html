@@ -2474,6 +2474,36 @@ left: 18px;
   max-height: 100vh !important;
   overflow: hidden !important;
 }
+  .screen:not(.active) {
+  display: none !important;
+}
+
+.screen.active {
+  display: flex !important;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+  /* FIX: Keep every birthday slide on its own screen */
+.screen {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100vh !important;
+  min-height: 100vh !important;
+  overflow-y: auto !important;
+}
+
+.screen:not(.active) {
+  display: none !important;
+}
+
+.screen.active {
+  display: flex !important;
+}
 </style>
 </head>
 <body>
