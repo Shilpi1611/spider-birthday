@@ -2464,45 +2464,6 @@ left: 18px;
   font-style: italic !important;
   color: #70558d !important;
 }
-  /* S4 floating birthday decorations */
-#s4 {
-  position: relative;
-  overflow: hidden;
-}
-
-#s4::before,
-#s4::after {
-  position: absolute;
-  pointer-events: none;
-  z-index: 0;
-  font-size: 27px;
-  line-height: 2.8;
-  opacity: 0.65;
-  animation: s4Float 3s ease-in-out infinite alternate;
-}
-
-#s4::before {
-  content: "✦  ♡  ✧\A♡  ✦  ✧";
-  white-space: pre;
-  top: 12%;
-  left: 5%;
-  color: #d99acb;
-  transform: rotate(-12deg);
-}
-
-#s4::after {
-  content: "✧  ✦  ♡\A✦  ♡  ✧";
-  white-space: pre;
-  right: 5%;
-  bottom: 8%;
-  color: #e5b84f;
-  transform: rotate(12deg);
-}
-
-@keyframes s4Float {
-  from { translate: 0 0; }
-  to { translate: 0 -12px; }
-}
 </style>
 </head>
 <body>
