@@ -400,8 +400,21 @@
 }
 *{box-sizing:border-box}
 body{margin:0;font-family:Georgia,serif;background:#e9e4ff;color:#51466c;text-align:center}
-.screen{display:none;min-height:100vh;padding:35px 18px;align-items:center;justify-content:center;flex-direction:column}
-.screen.active{display:flex}
+.screen {
+  display: none;
+  width: 100%;
+  height: 100vh;
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 35px 18px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.screen.active {
+  display: flex;
+}
 .card{background:#fff9ed;border:2px solid #fff;border-radius:25px;padding:25px;width:min(92%,440px);box-shadow:0 8px 25px #8274a533}
 h1{font-size:clamp(27px,7vw,42px);margin:10px}
 p{line-height:1.6}
