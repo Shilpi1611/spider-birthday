@@ -2474,6 +2474,16 @@ left: 18px;
   max-height: 100vh !important;
   overflow: hidden !important;
 }
+  html, body {
+  height: 100%;
+  overflow: hidden !important;
+}
+
+.screen {
+  height: 100vh;
+  min-height: 100vh;
+  overflow: hidden;
+}
 </style>
 </head>
 <body>
@@ -2766,7 +2776,7 @@ function go(n) {
   if (target) {
     target.classList.add("active");
     target.style.display = "flex";
-    target.scrollIntoView({
+    window.scrollTo(0, 0);
       behavior: "instant",
       block: "start"
     });
