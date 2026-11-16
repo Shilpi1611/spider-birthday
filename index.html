@@ -2763,29 +2763,25 @@ let pin = "";
 
 function press(n) {
   if (pin.length >= 4) return;
-
   pin += String(n);
-
-  const display = document.getElementById("pin");
-  if (display) {
-    display.textContent = "●".repeat(pin.length) + "_".repeat(4 - pin.length);
-  }
+  document.getElementById("pin").textContent =
+    "●".repeat(pin.length) + "_".repeat(4 - pin.length);
 }
 
 function clearPin() {
   pin = "";
-  const display = document.getElementById("pin");
-  if (display) display.textContent = "__";
+  document.getElementById("pin").textContent = "__";
 }
 
 function checkPin() {
-  if (pin !== "1611") {
+  if (pin === "1611") {
+    pin = "";
+    go(2);
+  } else {
     alert("Oops! Try again 💗");
     clearPin();
-    return;
   }
-
-  pin = "";
+pin = "";
   go(2);
 }  
 function go(n) {
