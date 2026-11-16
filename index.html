@@ -3294,6 +3294,7 @@ function checkPin() {
     clearPin();
   }
 }
+
 function go(n) {
   document.querySelectorAll(".screen").forEach(s => {
     s.classList.remove("active");
@@ -3314,12 +3315,7 @@ function go(n) {
   document.body.style.overflowY = "auto";
   document.documentElement.style.overflowY = "auto";
 }
-  function clearPin(){pin="";document.getElementById("pin").textContent="____";}
-function checkPin(){
- if(pin==="1611"){pin="";go(2);}
- else{alert("Oops! Try again 💗");clearPin();}
-}
-let savedPhotos=[];
+  let savedPhotos=[];
 document.getElementById("photos").addEventListener("change",e=>{
  savedPhotos.forEach(URL.revokeObjectURL);
  savedPhotos=[...e.target.files].map(f=>URL.createObjectURL(f));
@@ -3394,7 +3390,7 @@ if (scrapbookGrid) {
 
     const image = document.createElement("img");
     image.src = photos/photo${i}.jpeg;
-    image.alt = Scrapbook photo ${i};
+image.alt = Scrapbook photo ${i};
 
     frame.appendChild(image);
 
