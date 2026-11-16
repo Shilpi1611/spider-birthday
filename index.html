@@ -3322,45 +3322,36 @@ left: 18px;
   </div>
 </section>
 <section class="screen" id="s9">
-  <div class="card music-section">
-    <h1>The Song That Reminds You 🎶</h1>
-    <p>Some songs just feel like you. ❤️</p>
+  <div class="cassette-page">
+    <h1>Songs That Remind Me of You 🎶</h1>
+    <p class="cassette-subtitle">A little melody, just for you ♡</p>
 
-  <div class="song-list">
-  <div class="song-card">
-    <span>🎵 Tum Se Hi – Jab We Met</span>
-    <iframe
-      width="100%"
-      height="180"
-      src="https://www.youtube.com/embed/mt9xg0mmt28"
-      title="Tum Se Hi"
-      frameborder="0"
-      allow="autoplay; encrypted-media"
-      allowfullscreen>
-    </iframe>
-  </div>
-</div>
-<audio id="song1" src="songs/tum-se-hi.mp3"></audio>
-      <div class="song-card">
-        <span>🎶 Song Two</span>
-        <button onclick="playSong('song2')">▶️ Play</button>
+    <div class="big-cassette">
+      <div class="cassette-label">
+        <span class="cassette-name">TUM SE HI</span>
+        <span class="cassette-small">JAB WE MET</span>
       </div>
 
-      <div class="song-card">
-        <span>💗 Song Three</span>
-        <button onclick="playSong('song3')">▶️ Play</button>
+      <div class="cassette-window">
+        <div class="reel reel-left">
+          <div class="reel-center"></div>
+        </div>
+        <div class="tape-line"></div>
+        <div class="reel reel-right">
+          <div class="reel-center"></div>
+        </div>
+      </div>
+
+      <div class="cassette-bottom">
+        <span>♪ MOHIT CHAUHAN</span>
+        <span>LOVE • SIDE A</span>
       </div>
     </div>
 
-    <audio id="song1" src="songs/song1.mp3"></audio>
-    <audio id="song2" src="songs/song2.mp3"></audio>
-    <audio id="song3" src="songs/song3.mp3"></audio>
-
-    <p>Every song has a little piece of you. 🥹</p>
+    <p class="cassette-note">Some songs feel like you. ❤️</p>
     <button onclick="go(1)">Replay ↻</button>
   </div>
 </section>
-
 <script>
  function toggleMemories(){
  const strip = document.getElementById("scrapbookStrip");
