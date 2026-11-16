@@ -3353,38 +3353,22 @@ left: 18px;
 </section>
 <section class="screen" id="s9">
   <div class="cassette-page">
-    <h1>Songs That Remind Me of You 🎶</h1>
-    <p class="cassette-subtitle">A little melody, just for you ♡</p>
 
-   <h1>Songs That Remind Me of You 🎶</h1>
-<p class="cassette-subtitle">A little melody, just for you ♡</p>
-
-      <div class="cassette-window">
-        <div class="reel reel-left">
-          <div class="reel-center"></div>
-        </div>
-        <div class="tape-line"></div>
-        <div class="reel reel-right">
-          <div class="reel-center"></div>
-        </div>
-      </div>
-
-      <div class="cassette-bottom">
-        <span>♪ MOHIT CHAUHAN</span>
-        <span>LOVE • SIDE A</span>
-      </div>
-    </div>
+    <h1 class="song-heading">Songs That Remind Me of You 🎶</h1>
 
     <div class="music-player">
-  <audio controls preload="metadata" style="width:100%;">
-    <source src="music/Tum%20Se%20Hi.mp3" type="audio/mpeg">
-  </audio>
-</div>  
-  <p class="cassette-note">Some songs feel like you. ❤️</p>
+      <audio controls preload="metadata">
+        <source src="music/Tum%20Se%20Hi.mp3" type="audio/mpeg">
+        Your browser does not support audio.
+      </audio>
+    </div>
+
+    <p class="cassette-note">Some songs feel like you. ❤️</p>
+
     <button onclick="go(1)">Replay ↻</button>
+
   </div>
-</section>
-<script>
+</section><script>
  function toggleMemories(){
  const strip = document.getElementById("scrapbookStrip");
  strip.hidden = !strip.hidden;
