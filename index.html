@@ -2769,10 +2769,10 @@ function go(n) {
     target.style.display = "flex";
     window.scrollTo(0, 0);
   }
-}
+
   document.body.style.overflowY = "auto";
   document.documentElement.style.overflowY = "auto";
-}
+}  
   let savedPhotos=[];
 document.getElementById("photos").addEventListener("change",e=>{
  savedPhotos.forEach(URL.revokeObjectURL);
