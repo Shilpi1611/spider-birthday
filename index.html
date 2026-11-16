@@ -2494,6 +2494,17 @@ html, body {
 .screen.active {
   display: flex;
 }
+  /* FIX ONLY TODAY PAGE */
+#s4 {
+  height: 100vh !important;
+  min-height: 100vh !important;
+  max-height: 100vh !important;
+  overflow: hidden !important;
+}
+
+body:has(#s4.active) {
+  overflow: hidden !important;
+}
 </style>
 </head>
 <body>
