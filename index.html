@@ -2467,6 +2467,13 @@ left: 18px;
   #s4 .special-day-text {
   margin-top: 120px !important;
 }
+  /* Keep S4 fixed to one screen */
+#s4 {
+  height: 100vh !important;
+  min-height: 100vh !important;
+  max-height: 100vh !important;
+  overflow: hidden !important;
+}
 </style>
 </head>
 <body>
@@ -2527,10 +2534,6 @@ left: 18px;
 
 </div>
 </section>
-
-
-
-
 <section class="screen" id="s4">
 
   <!-- MUSIC BOX -->
@@ -2571,8 +2574,7 @@ left: 18px;
   </div>
   </div>
  <div class="corner-flower">🌸</div>
-  </div>
-
+  
   <!-- LET'S START BUTTON -->
 <button onclick="go(5)">Let's Start →</button>
 
