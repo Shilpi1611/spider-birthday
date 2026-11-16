@@ -2941,9 +2941,29 @@ function setAudio(inputId,playerId){
 }
 setAudio("music1","player1");
 setAudio("music2","player2");
-function blow(){
- document.getElementById("cake").textContent="🍰";
- document.getElementById("cakeText").textContent="Wish made! Happy Birthday! ✨";
+function blow() {
+  // Candle bujhao
+  const cake = document.getElementById("cake");
+  cake.textContent = "🍰";
+
+  document.getElementById("cakeText").textContent =
+    "Wish made! Happy Birthday! ❤️";
+
+  // Red paper confetti rain
+  for (let i = 0; i < 180; i++) {
+    setTimeout(() => {
+      const paper = document.createElement("div");
+      paper.className = "red-confetti";
+      paper.style.left = Math.random() * 100 + "vw";
+      paper.style.animationDuration = (2 + Math.random() * 3) + "s";
+      paper.style.backgroundColor =
+        ["#e32636", "#c1121f", "#ff3333", "#b80f0a"][Math.floor(Math.random() * 4)];
+
+      document.body.appendChild(paper);
+
+      setTimeout(() => paper.remove(), 5500);
+    }, i * 12);
+  }
 }
 function reveal(){
  document.getElementById("giftText").textContent="Surprise! You deserve all the happiness in the world! 💖";
