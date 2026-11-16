@@ -3148,15 +3148,14 @@ function go(n) {
   if (target) {
     target.classList.add("active");
     target.style.display = "flex";
+    target.scrollIntoView({
+      behavior: "instant",
+      block: "start"
+    });
   }
 
   document.body.style.overflowY = "auto";
   document.documentElement.style.overflowY = "auto";
-
- document.getElementById("s5").scrollIntoView({
-  behavior: "instant",
-  block: "start"
-});
 }
   function clearPin(){pin="";document.getElementById("pin").textContent="____";}
 function checkPin(){
