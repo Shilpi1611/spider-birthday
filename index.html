@@ -1750,8 +1750,14 @@ clip-path: polygon(
 .screen:not(.active) {
   display: none !important;
 }
-#s1.active { display: flex !important; }
-#s5.active { display: flex !important; }
+
+.screen.active {
+  display: flex !important;
+}
+
+#s1.active {
+  display: flex !important;
+}
 
 /* Clean, centered word-by-word birthday message. */
 #s4 .birthday-message {
@@ -1798,16 +1804,26 @@ clip-path: polygon(
 }
 
 /* ===== FINAL PRECISE LAYOUT FIX ===== */
-html, body { width:100%; min-height:100%; }
-#s1.active {
-  display:flex !important; height:100vh !important; min-height:100vh !important;
-  max-height:100vh !important; overflow:hidden !important; box-sizing:border-box !important;
+html, body {
+  width: 100%;
+  min-height: 100%;
 }
-.screen:not(.active) { display:none !important; }
 
-/* Memory screen itself is preserved; its Continue button has been removed. */
-#s2.active { display:flex !important; }
+.screen:not(.active) {
+  display: none !important;
+}
 
+.screen.active {
+  display: flex !important;
+}
+
+#s1.active {
+  height: 100vh !important;
+  min-height: 100vh !important;
+  max-height: 100vh !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+}
 /* Birthday page: message first, then a larger, neat blue music panel. */
 #s4 {
   min-height:100vh !important; height:auto !important; overflow:visible !important;
