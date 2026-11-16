@@ -2899,32 +2899,28 @@ function press(n){
   document.getElementById("pin").textContent =
     "•".repeat(pin.length) + "_".repeat(4-pin.length);
 }
-function go(n){
- document.querySelectorAll(".screen").forEach(s=>{
-   s.classList.remove("active");
-   s.style.display = "none";
- });
+function go(n) {
+  document.querySelectorAll(".screen").forEach(s => {
+    s.classList.remove("active");
+    s.style.display = "none";
+  });
 
- if(n===2){
-   const memories=document.getElementById("s2");
-   const birthday=document.getElementById("s4");
-   memories.classList.add("active");
-   birthday.classList.add("active");
-   memories.style.display="flex";
-   birthday.style.display="flex";
- }
+  const target = document.getElementById("s" + n);
 
- const target = (n===2) ? null : document.getElementById("s"+n);
+  if (target) {
+    target.classList.add("active");
+    target.style.display = "flex";
+  }
 
- if(target){
-   target.classList.add("active");
-   target.style.display="flex";
- }
- document.body.style.overflowY = "auto";
- document.documentElement.style.overflowY = "auto";
- window.scrollTo({top:0, behavior:"instant"});
+  document.body.style.overflowY = "auto";
+  document.documentElement.style.overflowY = "auto";
+
+  window.scrollTo({
+    top: 0,
+    behavior: "instant"
+  });
 }
-function clearPin(){pin="";document.getElementById("pin").textContent="____";}
+  function clearPin(){pin="";document.getElementById("pin").textContent="____";}
 function checkPin(){
  if(pin==="1611"){pin="";go(2);}
  else{alert("Oops! Try again 💗");clearPin();}
