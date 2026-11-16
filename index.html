@@ -1143,7 +1143,6 @@ clip-path: polygon(
   );
 }
  #s6 {
-  display: flex !important;
   background-color: #f8f1e2 !important;
   background-image:
     linear-gradient(90deg, rgba(190,160,120,.13) 50%, transparent 50%),
@@ -1473,7 +1472,6 @@ clip-path: polygon(
   padding: 0 10px !important;
 }
 #s4 .birthday-message h1 {
-  display: flex !important;
   flex-wrap: wrap !important;
   justify-content: center !important;
   align-items: center !important;
@@ -2514,9 +2512,30 @@ html, body {
   max-height: 100vh !important;
   overflow: hidden !important;
 }
-
-body:has(#s4.active) {
+  /* TODAY PAGE: one-screen layout */
+#s4 {
+  height: 100vh !important;
+  min-height: 100vh !important;
+  max-height: 100vh !important;
   overflow: hidden !important;
+  box-sizing: border-box !important;
+}
+
+/* SCRAPBOOK AND LETTER: allow scrolling */
+#s7,
+#s8 {
+  height: auto !important;
+  min-height: 100vh !important;
+  max-height: none !important;
+  overflow-y: visible !important;
+  overflow-x: hidden !important;
+  justify-content: flex-start !important;
+}
+
+/* Keep normal page scrolling */
+body {
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 </style>
 </head>
