@@ -2455,6 +2455,15 @@ left: 18px;
 #s4 .special-day-text span:nth-child(1) { animation-delay: 0s !important; }
 #s4 .special-day-text span:nth-child(2) { animation-delay: .25s !important; }
 #s4 .special-day-text span:nth-child(3) { animation-delay: .5s !important; }
+  /* Force S4 text to match S5 font */
+#s4 .special-day-text,
+#s4 .special-day-text span {
+  font-family: "Trebuchet MS", sans-serif !important;
+  font-size: clamp(34px, 8vw, 48px) !important;
+  font-weight: 900 !important;
+  font-style: italic !important;
+  color: #70558d !important;
+}
 </style>
 </head>
 <body>
