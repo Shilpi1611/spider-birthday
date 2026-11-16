@@ -2551,6 +2551,75 @@ body {
 #s2.active {
   display: flex !important;
 }
+  .welcome-screen {
+  background: linear-gradient(135deg, #ffe1ed, #e8ddff, #fff0d9);
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.welcome-card {
+  width: 100%;
+  max-width: 430px;
+  padding: 35px 22px;
+  border-radius: 28px;
+  background: rgba(255,255,255,0.82);
+  box-shadow: 0 12px 35px rgba(160, 90, 140, 0.18);
+  text-align: center;
+  box-sizing: border-box;
+  animation: welcomePop 0.8s ease both;
+}
+
+.welcome-heart {
+  font-size: 48px;
+  color: #ff6b9a;
+  animation: heartBeat 1.4s infinite;
+}
+
+.welcome-title {
+  font-size: clamp(30px, 8vw, 42px);
+  line-height: 1.15;
+  font-weight: 900;
+  color: #9b4777;
+  margin: 14px 0;
+  animation: welcomePop 1s ease both;
+}
+
+.welcome-text {
+  font-size: 19px;
+  line-height: 1.6;
+  font-weight: 700;
+  color: #76536f;
+}
+
+.welcome-sparkles {
+  margin: 22px 0;
+  font-size: 25px;
+  color: #e99abb;
+}
+
+.welcome-btn {
+  border: 0;
+  border-radius: 30px;
+  padding: 16px 25px;
+  background: linear-gradient(135deg, #ff78a8, #a78bfa);
+  color: white;
+  font-size: 16px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  box-shadow: 0 7px 18px rgba(190, 100, 160, 0.3);
+  animation: welcomePop 1.2s ease both;
+}
+
+@keyframes welcomePop {
+  from { opacity: 0; transform: translateY(18px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes heartBeat {
+  50% { transform: scale(1.18); }
+}
 </style>
 </head>
 <body>
@@ -2611,6 +2680,20 @@ body {
 <div class="photo-grid" id="photoGrid"></div>
 <button onclick="go(4)">Let's Start →</button>
 </div>
+</section>
+  <section class="screen welcome-screen" id="s4">
+  <div class="welcome-card">
+    <div class="welcome-heart">♡</div>
+    <h1 class="welcome-title">A Little Surprise for You ❤️</h1>
+    <p class="welcome-text">
+      Because today is all about you…
+      and it's time to celebrate! 🎂
+    </p>
+    <div class="welcome-sparkles">✦　♡　✦</div>
+    <button class="welcome-btn" onclick="go(5)">
+      LET'S CELEBRATE ✨
+    </button>
+  </div>
 </section>
 <section class="screen" id="s5">
   <div class="birthday-cake-card">
