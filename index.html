@@ -2637,20 +2637,24 @@ left: 18px;
 }
   /* Red party confetti */
 .red-confetti {
-  position: fixed;
-  top: -20px;
-  width: 7px;
-  height: 12px;
-  background: #e32636;
-  z-index: 99999;
-  pointer-events: none;
-  animation: confettiFall 3s linear forwards;
+  position: fixed !important;
+  top: -25px !important;
+  width: 8px !important;
+  height: 15px !important;
+  background: #e00000;
+  z-index: 999999 !important;
+  pointer-events: none !important;
+  animation: redPaperRain linear forwards;
 }
 
-@keyframes confettiFall {
-  to {
-    transform: translateY(110vh) rotate(900deg);
-    opacity: 0;
+@keyframes redPaperRain {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) rotate(1080deg);
+    opacity: 0.9;
   }
 }
 </style>
@@ -2947,18 +2951,23 @@ function blow() {
     flame.style.display = "none";
   });
 
-  // Red party paper rain
-  for (let i = 0; i < 180; i++) {
-    setTimeout(() => {
-      const paper = document.createElement("div");
-      paper.className = "red-confetti";
-      paper.style.left = Math.random() * 100 + "vw";
-      paper.style.animationDuration = (2 + Math.random() * 3) + "s";
-      paper.style.backgroundColor = ["#e32636", "#c1121f", "#ff3333", "#b80f0a"][Math.floor(Math.random() * 4)];
-      document.body.appendChild(paper);
-      setTimeout(() => paper.remove(), 5500);
-    }, i * 12);
-  }
+ // Heavy red party paper rain
+for (let i = 0; i < 350; i++) {
+  setTimeout(() => {
+    const paper = document.createElement("div");
+    paper.className = "red-confetti";
+
+    paper.style.left = Math.random() * 100 + "vw";
+    paper.style.backgroundColor = [
+      "#e00000", "#ff2020", "#b00000",
+      "#cc0000", "#ff4444"
+    ][Math.floor(Math.random() * 5)];
+
+    paper.style.animationDuration = (2.5 + Math.random() * 3) + "s";
+
+    document.body.appendChild(paper);
+    setTimeout(() => paper.remove(), 6000);
+  }, i * 8);
 }
 function reveal(){
  document.getElementById("giftText").textContent="Surprise! You deserve all the happiness in the world! 💖";
