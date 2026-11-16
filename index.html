@@ -3382,6 +3382,8 @@ const scrapbookCaptions = [
 ];
 
 if (scrapbookGrid) {
+  scrapbookGrid.innerHTML = "";
+
   for (let i = 1; i <= 6; i++) {
     const frame = document.createElement("div");
     frame.className = "polaroid";
@@ -3399,18 +3401,6 @@ if (scrapbookGrid) {
     frame.appendChild(caption);
     scrapbookGrid.appendChild(frame);
   }
-}
-    frame.appendChild(image);
-
-    const caption = document.createElement("input");
-    caption.type = "text";
-    caption.className = "photo-caption";
-    caption.placeholder = "Write something sweet...";
-
-    frame.appendChild(caption);
-    scrapbookGrid.appendChild(frame);
-  }
-}
-</script>
+  </script>
 </body>
 </html>
