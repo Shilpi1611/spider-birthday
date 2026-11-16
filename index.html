@@ -160,7 +160,8 @@ transform: translateY(0) !important;
   #s4 .birthday-bunting .flag {
     height: 58px !important;
   }
-}}/* Let's Start at bottom-right */
+}}
+  /* Let's Start at bottom-right */
 #s4 > button {
   order: 5 !important;
   align-self: flex-end !important;
@@ -2915,10 +2916,10 @@ function go(n) {
   document.body.style.overflowY = "auto";
   document.documentElement.style.overflowY = "auto";
 
-  window.scrollTo({
-    top: 0,
-    behavior: "instant"
-  });
+ document.getElementById("s5").scrollIntoView({
+  behavior: "instant",
+  block: "start"
+});
 }
   function clearPin(){pin="";document.getElementById("pin").textContent="____";}
 function checkPin(){
