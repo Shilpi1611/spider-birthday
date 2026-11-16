@@ -2430,6 +2430,31 @@ left: 18px;
 #s4 .special-day-text .part-three span {
   animation-delay: 3.8s;
 }
+  /* S4 heading: match S5 birthday heading */
+#s4 .special-day-text {
+  font-family: "Trebuchet MS", sans-serif !important;
+  font-size: clamp(34px, 8vw, 48px) !important;
+  font-weight: 900 !important;
+  font-style: italic !important;
+  line-height: 1.05 !important;
+  color: #70558d !important;
+  transform: rotate(-4deg) !important;
+  text-align: center !important;
+}
+
+#s4 .special-day-text .sentence-part {
+  display: block !important;
+}
+
+#s4 .special-day-text span {
+  display: inline-block !important;
+  opacity: 1 !important;
+  animation: wordPopLoop 1.4s ease-in-out infinite alternate !important;
+}
+
+#s4 .special-day-text span:nth-child(1) { animation-delay: 0s !important; }
+#s4 .special-day-text span:nth-child(2) { animation-delay: .25s !important; }
+#s4 .special-day-text span:nth-child(3) { animation-delay: .5s !important; }
 </style>
 </head>
 <body>
