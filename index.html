@@ -3012,6 +3012,30 @@ left: 18px;
   position: relative !important;
   z-index: 999 !important;
 }
+  .letter-open-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  margin: 30px auto 20px;
+  padding: 16px 28px;
+  background: linear-gradient(135deg, #ffb6cf, #f7a6c8);
+  color: #713d68;
+  border: 2px dashed #fff;
+  border-radius: 22px;
+  box-shadow: 0 5px 15px #d98bad55;
+  font-family: "Segoe Script", cursive;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.letter-open-btn span {
+  font-family: Georgia, serif;
+  font-size: 12px;
+  font-weight: normal;
+  color: #945b83;
+}
 </style>
 </head>
 <body>
@@ -3199,7 +3223,11 @@ left: 18px;
     <h1 class="scrapbook-title">My Favourite Person 💗</h1>
 
     <div id="scrapbookGrid" class="scrapbook-grid"></div>
-
+<button class="letter-open-btn" onclick="go(8)">
+  💌 Tumhare liye kuch likha hai
+  <span>Open with love ♡</span>
+</button>
+    
   </div>
 </section>
 
