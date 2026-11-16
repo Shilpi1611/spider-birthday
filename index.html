@@ -3097,6 +3097,115 @@ left: 18px;
   padding: 10px 18px;
   cursor: pointer;
 }
+  #s9 {
+  background: #f3eadb !important;
+  padding: 25px 14px;
+}
+
+#s9 .cassette-page {
+  width: min(100%, 600px);
+  margin: auto;
+  text-align: center;
+  color: #29231f;
+}
+
+#s9 .cassette-page h1 {
+  font-family: Georgia, serif;
+  font-size: clamp(27px, 6vw, 38px);
+  margin: 20px 0 8px;
+}
+
+#s9 .cassette-subtitle {
+  color: #77695e;
+  margin-bottom: 35px;
+}
+
+#s9 .big-cassette {
+  width: min(100%, 440px);
+  margin: 0 auto;
+  padding: 24px 22px;
+  background: linear-gradient(145deg, #303030, #080808);
+  border: 5px solid #555;
+  border-radius: 22px;
+  box-shadow: 0 14px 28px #46382d55;
+}
+
+#s9 .cassette-label {
+  background: #d8d0bd;
+  color: #171717;
+  padding: 12px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+#s9 .cassette-name {
+  font: bold 25px Georgia, serif;
+  letter-spacing: 4px;
+}
+
+#s9 .cassette-small {
+  font: bold 11px Arial, sans-serif;
+  letter-spacing: 3px;
+}
+
+#s9 .cassette-window {
+  height: 125px;
+  margin: 18px 0;
+  background: #171717;
+  border: 3px solid #777;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  position: relative;
+  overflow: hidden;
+}
+
+#s9 .reel {
+  width: 78px;
+  height: 78px;
+  border: 8px solid #aaa;
+  border-radius: 50%;
+  background: repeating-conic-gradient(#888 0deg 12deg, #333 12deg 24deg);
+  display: grid;
+  place-items: center;
+  animation: cassetteSpin 5s linear infinite;
+}
+
+#s9 .reel-center {
+  width: 24px;
+  height: 24px;
+  border: 5px solid #bbb;
+  border-radius: 50%;
+  background: #222;
+}
+
+#s9 .tape-line {
+  width: 55px;
+  height: 5px;
+  background: #aaa;
+  border-radius: 5px;
+}
+
+#s9 .cassette-bottom {
+  display: flex;
+  justify-content: space-between;
+  color: #ddd;
+  font: 10px Arial, sans-serif;
+  letter-spacing: 1px;
+}
+
+#s9 .cassette-note {
+  margin: 28px 0 18px;
+  color: #665348;
+  font: italic 18px Georgia, serif;
+}
+
+@keyframes cassetteSpin {
+  to { transform: rotate(360deg); }
+}
 </style>
 </head>
 <body>
